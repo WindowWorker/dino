@@ -4,5 +4,11 @@
     "api/**/*.[jt]s": {
       "runtime": "vercel-dev-builder@0.0.5"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "api/handler.ts"
+    }
+  ]
 }
