@@ -1,0 +1,12 @@
+import * as handler from './api/handler.ts';
+async function handleHttp(conn) {
+    for await (const e of Deno.serveHttp(conn)){
+        e.respondWith(handler.default(e.request));
+    }
+}
+for await (const conn of Deno.listen({
+    port: 80
+})){
+    handleHttp(conn);
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZpbGU6Ly8vaG9tZS9ydW5uZXIvRGVuby9pbmRleC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgKiBhcyBoYW5kbGVyIGZyb20gJy4vYXBpL2hhbmRsZXIudHMnO1xuXG5hc3luYyBmdW5jdGlvbiBoYW5kbGVIdHRwKGNvbm46IERlbm8uQ29ubikge1xuICBmb3IgYXdhaXQgKGNvbnN0IGUgb2YgRGVuby5zZXJ2ZUh0dHAoY29ubikpIHtcbiAgICBlLnJlc3BvbmRXaXRoKGhhbmRsZXIuZGVmYXVsdChlLnJlcXVlc3QpKTtcbiAgfVxufVxuXG5mb3IgYXdhaXQgKGNvbnN0IGNvbm4gb2YgRGVuby5saXN0ZW4oeyBwb3J0OiA4MCB9KSkge1xuICBoYW5kbGVIdHRwKGNvbm4pO1xufSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZLGFBQWEsbUJBQW1CO0FBRTVDLGVBQWUsV0FBVyxJQUFlLEVBQUU7SUFDekMsV0FBVyxNQUFNLEtBQUssS0FBSyxTQUFTLENBQUMsTUFBTztRQUMxQyxFQUFFLFdBQVcsQ0FBQyxRQUFRLE9BQU8sQ0FBQyxFQUFFLE9BQU87SUFDekM7QUFDRjtBQUVBLFdBQVcsTUFBTSxRQUFRLEtBQUssTUFBTSxDQUFDO0lBQUUsTUFBTTtBQUFHLEdBQUk7SUFDbEQsV0FBVztBQUNiIn0=
