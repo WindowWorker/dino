@@ -1,11 +1,29 @@
-import * as handler from './api/handler.ts';
+import * as handler from "./api/handler.ts";
 
-async function handleHttp(conn: Deno.Conn) {
-  for await (const e of Deno.serveHttp(conn)) {
-    e.respondWith(handler.default(e.request));
+if (Deno.serve) {
+  Deno.serve(handler.default);
+} else {
+  async function handleHttp(conn: Deno.Conn) {
+    let lastE;
+    try {
+      for await (let e of Deno.serveHttp(conn)) {
+        lastE = e;
+        try {
+          e.respondWith(handler.default(e.request));
+        } catch (err) {
+          continue;
+        }
+      }
+    } catch (err) {
+      lastE.respondWith(new Response(err.message));
+    }
   }
-}
 
-for await (const conn of Deno.listen({ port: 80 })) {
-  handleHttp(conn);
+  for await (let conn of Deno.listen({ port: 80 })) {
+    try {
+      handleHttp(conn);
+    } catch (e) {
+      continue;
+    }
+  }
 }
