@@ -1,0 +1,77 @@
+{
+  "name": "vercel-deno",
+  "version": "3.0.4",
+  "description": "Vercel Runtime for Deno serverless functions",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Nathan Rajlich <nate@vercel.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/TooTallNate/vercel-deno",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TooTallNate/vercel-deno.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "./build.sh",
+    "now-build": "next build",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@tootallnate/once": "^2.0.0",
+    "abort-controller": "^3.0.0",
+    "arg": "^5.0.0",
+    "fs-extra": "^10.0.1",
+    "node-fetch": "2",
+    "promisepipe": "^3.0.0",
+    "ramda": "^0.27.1",
+    "shell-args": "^1.0.0",
+    "yauzl-promise": "^2.1.3"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/glob": "^7.1.4",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^14.14.27",
+    "@types/node-fetch": "2",
+    "@types/ramda": "^0.27.40",
+    "@types/react": "^17.0.2",
+    "@types/yauzl-promise": "^2.1.0",
+    "@typescript-eslint/eslint-plugin": "4.15.0",
+    "@typescript-eslint/parser": "4.15.0",
+    "@vercel/build-utils": "^5.2.0",
+    "@vercel/frameworks": "^0.2.0",
+    "@vercel/routing-utils": "^1.9.2",
+    "eslint": "7.19.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-next": "11.1.2",
+    "eslint-config-prettier": "7.2.0",
+    "eslint-import-resolver-typescript": "2.3.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.22.0",
+    "jest": "^27.1.0",
+    "next": "^13.5.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.1.5"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false,
+        "isolatedModules": true
+      }
+    },
+    "verbose": false,
+    "testEnvironment": "node",
+    "testMatch": [
+      "<rootDir>/test/**/*.test.ts"
+    ]
+  }
+}
