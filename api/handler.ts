@@ -33,7 +33,7 @@ export default async function (req: Request) {
 
   let body = "";
 
-  else if(flatURL.endsWith('.js')){
+ if(flatURL.endsWith('.js')){
     body=(await res.text()).replaceAll(hostTarget,localhost);
   }
   else if (res.body) {
