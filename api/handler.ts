@@ -34,7 +34,7 @@ export default async function (req: Request) {
 
   let body = "";
   let htmlFlag = false;
-  if(res.headers.has('Content-Type')){
+  if(!res.headers.has('Content-Type')){
     
   }
  else if(res.headers.get('content-type').toLowerCase().includes('html')){
