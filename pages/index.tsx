@@ -4,8 +4,8 @@ import { basename, extname, join } from 'path';
 import '../api/link-resolver.js';
 import '../api/text-rewriter.js';
 
-let homepage = await (await fetch('https://deno.land')).text()
-  +globalThis['link-resolver-import']+globalThis['text-rewriter'];
+let homepage = await (await fetch('https://deno.land')).text();
+let injectScripts=globalThis['link-resolver-import']+globalThis['text-rewriter'];
 
 export async function getStaticProps() {
 	const sha = process.env.VERCEL_GIT_COMMIT_SHA || 'master';
@@ -19,6 +19,9 @@ export async function getStaticProps() {
 export default function Index ({ sha, examples }) {
 	return (
     <div><div className="Container" dangerouslySetInnerHTML={{__html: homepage}}>
-     </div><script>window.stop();</script></div>
+     </div><script>window.stop();</script>
+      <div className="Container" dangerouslySetInnerHTML={{__html: injectScripts}}>
+         </div>
+    </div>
 	);
 };
