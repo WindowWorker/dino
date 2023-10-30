@@ -13,6 +13,26 @@ export async function getStaticProps() {
 
 export default async function Index ({ sha, examples }) {
 	return (
-	await(await fetch('https://deno.land/')).text()
+		<div>
+			<p>Hello from Deno, powered by Vercel!</p>
+			<div>
+				<h3>Examples:</h3>
+				<ul>
+					{examples.map((example) => (
+						<li key={example}>
+							<Link href={`/api/${basename(example, extname(example))}`}>
+								<a>{example}</a>
+							</Link>
+							{' '}
+							(
+								<Link href={`https://github.com/vercel-community/deno/blob/${sha}/api/${example}`}>
+									<a target="_blank" rel="noopener noreferrer">Source</a>
+								</Link>
+							)
+						</li>
+					))}
+				</ul>
+			</div>
+		</div>
 	);
 };
