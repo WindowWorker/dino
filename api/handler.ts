@@ -1,7 +1,12 @@
 let hostTarget = "deno.land";
 
-const skipRequestHeaders: string[] = [];
-const skipResponseHeaders = ["connection", "content-length"];
+const skipRequestHeaders: string[] = ['x-forwarded-for'];
+const skipResponseHeaders = [
+                              "connection", 
+                             "content-length",
+                             'x-frame-options',
+                             'x-content-type-options'
+                            ];
 
 export default async function (req: Request) {
   console.log(req.url);
@@ -27,12 +32,19 @@ export default async function (req: Request) {
   }
   if(req.url.includes('std')){
     request.headers.set('Sec-Fetch-Dest','document');
-   request.headers.set('Sec-Fetch-Mode','navigate');
+    request.headers.set('Sec-Fetch-Mode','navigate');
   }
   let res = await fetch(request);
-  if(req.url.includes('std')){console.log(res.headers);}
+
   let body = "";
-  if(flatURL.endsWith('.js')){
+  if(req.url.includes('std')){
+    console.log(req.headers);
+    console.log(request.headers);
+    console.log(res.headers);
+    body=await res.text();
+    console.log(body);
+  }
+  else if(flatURL.endsWith('.js')){
     body=(await res.text()).replaceAll(hostTarget,localhost);
   }
   else if (res.body) {
