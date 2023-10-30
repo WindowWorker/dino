@@ -10,6 +10,10 @@ export default async function (req: Request) {
   }
   console.log(req.url);
   let url = req.url.split("/");
+  if((url.length==4)&&(url[3]=='_root')){
+    url[3]='';
+  }
+  
   let localhost = url[2];
   url[2] = hostTarget;
   let request = new Request(url.join("/"));
