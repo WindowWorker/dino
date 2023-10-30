@@ -92,7 +92,7 @@ export default async function (req: Request) {
     response.headers.set('Content-Type','image/svg+xml');
   }
   if(flatURL.endsWith('.png')){
-    response.headers.set('Content-Type','image/x-png');
+    response.headers.set('Content-Type','image/png');
   }
   if(flatURL.endsWith('.jpg')||flatURL.endsWith('.jpeg')){
     response.headers.set('Content-Type','image/jpeg');
