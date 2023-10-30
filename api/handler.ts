@@ -9,11 +9,10 @@ const skipResponseHeaders = [
                             ];
 
 export default async function (req: Request) {
-  console.log(req.url);
+
   if ((req.method == "OPTIONS")||(req.url=='*')) {
     return new Response("",{headers:{Allow: "OPTIONS, GET, HEAD, POST"}});
   }
-  console.log(req.url);
   let url=req.url.split('/');
   let flatURL = req.url.split('?')[0].split('#')[0];
   let localhost = url[2];
@@ -30,20 +29,10 @@ export default async function (req: Request) {
       );
     }
   }
-  if(req.url.includes('std')){
-    request.headers.set('Sec-Fetch-Dest','document');
-    request.headers.set('Sec-Fetch-Mode','navigate');
-  }
   let res = await fetch(request);
 
   let body = "";
-  if(req.url.includes('std')){
-    console.log(req.headers);
-    console.log(request.headers);
-    console.log(res.headers);
-    body=await res.text();
-    console.log(body);
-  }
+
   else if(flatURL.endsWith('.js')){
     body=(await res.text()).replaceAll(hostTarget,localhost);
   }
