@@ -48,5 +48,8 @@ export default async function (req: Request) {
   if(flatURL.endsWith('.js')){
     response.headers.set('Content-Type','text/javascript');
   }
+  if(flatURL.endsWith('.svg')){
+    response.headers.set('Content-Type','image/svg+xml');
+  }
   return response;
 }
