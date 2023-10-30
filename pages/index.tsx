@@ -15,7 +15,7 @@ export async function getStaticProps() {
 
 export default function Index ({ sha, examples }) {
 	return (
-     <div className="Container" dangerouslySetInnerHTML={{__html: homepage}}>
-     </div><script>window.stop();</script>
+    <div><div className="Container" dangerouslySetInnerHTML={{__html: homepage}}>
+     </div><script>window.stop();</script></div>
 	);
 };
