@@ -36,20 +36,32 @@ export default async function (req: Request) {
   let htmlFlag = false;
   if(!res.headers.has('Content-Type')){
     body = await res.arrayBuffer();
+    const typedArray = new Uint8Array(body);
+    let array = [...typedArray];
+    array.length=50;
+    console.log(String.fromCharCode(...array));
   }
- else if(res.headers.get('content-type').toLowerCase().includes('html')){
+ else{
+   let ct=res.headers.get('content-type').toLowerCase();
+   console.log(ct);
+   if(ct.includes('html')){
    body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+'</head>');
  }
- else if(res.headers.has('content-type')&&(res.headers.get('content-type').toLowerCase().includes('text'))){
+ else if(ct.includes('text')){
       body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+'</head>');
-      if(body.includes('<html')){htmlFlag=true;}
+      if(body.includes('<html')||ct.includes('plain')){htmlFlag=true;}
     }
  else if(flatURL.endsWith('.js')){
     body=(await res.text()).replaceAll(hostTarget,localhost);
   }
   else if (res.body) {
     body = await res.arrayBuffer();
+    const typedArray = new Uint8Array(body);
+    let array = [...typedArray];
+    array.length=50;
+    console.log(String.fromCharCode(...array));
   }
+}
   let response = new Response(body);
   for (let header in response.headers.keys) {
     if (header) {
