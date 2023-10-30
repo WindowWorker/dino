@@ -75,12 +75,7 @@ export default async function (req: Request) {
       );
     }
   }
-  if(flatURL.endsWith('.js')){
-    response.headers.set('Content-Type','text/javascript');
-  }
-  if(flatURL.endsWith('.svg')){
-    response.headers.set('Content-Type','image/svg+xml');
-  }
+
   if(htmlFlag){
     response.headers.set('Content-Type','text/html');
   }
@@ -89,6 +84,18 @@ export default async function (req: Request) {
   }
   if(response.headers.get('Content-Type').toLowerCase().includes('plain')){
     response.headers.set('Content-Type','text/html');
+  }
+  if(flatURL.endsWith('.js')){
+    response.headers.set('Content-Type','text/javascript');
+  }
+  if(flatURL.endsWith('.svg')){
+    response.headers.set('Content-Type','image/svg+xml');
+  }
+  if(flatURL.endsWith('.png')){
+    response.headers.set('Content-Type','image/x-png');
+  }
+  if(flatURL.endsWith('.jpg')||flatURL.endsWith('.jpeg')){
+    response.headers.set('Content-Type','image/jpeg');
   }
   console.log(response.headers.get('content-type'));
   return response;
