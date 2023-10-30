@@ -37,7 +37,7 @@ export default async function (req: Request) {
  if(res.headers.has('content-type')&&(res.headers.get('content-type').toLowerCase().includes('html'))){
    body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+'</head>');
  }
- if(res.headers.has('content-type')&&(res.headers.get('content-type').toLowerCase().includes('text'))){
+ else if(res.headers.has('content-type')&&(res.headers.get('content-type').toLowerCase().includes('text'))){
       body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+'</head>');
       if(body.includes('<html')){htmlFlag=true;}
     }
