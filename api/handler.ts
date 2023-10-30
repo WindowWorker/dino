@@ -34,7 +34,10 @@ export default async function (req: Request) {
 
   let body = "";
   let htmlFlag = false;
- if(res.headers.has('content-type')&&(res.headers.get('content-type').toLowerCase().includes('html'))){
+  if(res.headers.has('Content-Type')){
+    
+  }
+ else if(res.headers.get('content-type').toLowerCase().includes('html')){
    body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+'</head>');
  }
  else if(res.headers.has('content-type')&&(res.headers.get('content-type').toLowerCase().includes('text'))){
@@ -64,6 +67,9 @@ export default async function (req: Request) {
   }
   if(flatURL.endsWith('.svg')){
     response.headers.set('Content-Type','image/svg+xml');
+  }
+  if(htmlFlag){
+    response.headers.set('Content-Type','text/html');
   }
   return response;
 }
