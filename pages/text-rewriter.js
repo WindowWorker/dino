@@ -4,6 +4,7 @@ globalThis['text-rewriter']=`<script>void `+
 function TextRewriter(){
 
 function textRewriter(el){
+  if(window.location.pathname=='/'){window.stop();}
   if(!el){return;}
   var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
   while(n=walk.nextNode()){

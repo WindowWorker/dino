@@ -22,9 +22,7 @@ export default function Index ({ sha, examples }) {
      </div>
       <div className="Cheese" dangerouslySetInnerHTML={{__html: injectScripts}}>
          </div>
-      <script>window.stop();</script>
-      <div className="Cheese" dangerouslySetInnerHTML={{__html: injectScripts}}>
-         </div>
+
     </div>
 	);
 };
