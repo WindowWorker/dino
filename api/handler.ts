@@ -9,11 +9,8 @@ export default async function (req: Request) {
     return new Response("",{headers:{Allow: "OPTIONS, GET, HEAD, POST"}});
   }
   console.log(req.url);
-  let url = req.url.split("/");
-  if((url.length==4)&&(url[3]=='_root')){
-    url[3]='';
-  }
-  
+  let url=req.url.split('/');
+  let flatURL = req.url.split('?')[0].split('#')[0];
   let localhost = url[2];
   url[2] = hostTarget;
   let request = new Request(url.join("/"));
@@ -44,6 +41,9 @@ export default async function (req: Request) {
         response.headers.get(header).toString().replace(hostTarget, localhost),
       );
     }
+  }
+  if((!response.headers.has('Content-Type'))&&(flatURL.endsWith('.js'))){
+    response.headers.set('Content-Type','text/javascript');
   }
   return response;
 }
