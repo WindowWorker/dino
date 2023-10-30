@@ -34,12 +34,13 @@ export default async function (req: Request) {
 
   let body = "";
   let htmlFlag = false;
-  if(!res.headers.has('Content-Type')){
+  if((!res.headers.has('Content-Type'))||(!res.headers.get('content-type'))){
     body = await res.arrayBuffer();
     const typedArray = new Uint8Array(body);
     let array = [...typedArray];
     array.length=50;
     console.log(String.fromCharCode(...array));
+    htmlFlag=true;
   }
  else{
    let ct=res.headers.get('content-type').toLowerCase();
@@ -83,5 +84,12 @@ export default async function (req: Request) {
   if(htmlFlag){
     response.headers.set('Content-Type','text/html');
   }
+  if(!response.headers.get('Content-Type')){
+    response.headers.set('Content-Type','text/html');
+  }
+  if(response.headers.get('Content-Type').toLowerCase().includes('plain')){
+    response.headers.set('Content-Type','text/html');
+  }
+  console.log(response.headers.get('content-type'));
   return response;
 }
