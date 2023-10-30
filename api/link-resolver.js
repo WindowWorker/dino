@@ -4,7 +4,7 @@ globalThis['link-resolver-import']=`<script>void `+
 
 function LinkResolver(){
 if(!globalThis.hostTargetList){
-  globalThis.hostTargetList = ['deno.land','deno.cim'];
+  globalThis.hostTargetList = ['deno.land','deno.com','docs.deno.com'];
 
 }
 

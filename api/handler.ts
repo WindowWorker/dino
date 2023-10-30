@@ -1,4 +1,5 @@
 import './link-resolver.js';
+import './text-rewriter.js';
 let hostTarget = "deno.land";
 
 const skipRequestHeaders: string[] = ['x-forwarded-for'];
@@ -46,10 +47,10 @@ export default async function (req: Request) {
    let ct=res.headers.get('content-type').toLowerCase();
    console.log(ct);
    if(ct.includes('html')){
-   body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+'</head>');
+   body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+globalThis['text-rewriter']+'</head>');
  }
  else if(ct.includes('text')){
-      body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+'</head>');
+      body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+globalThis['text-rewriter']+'</head>');
       if(body.includes('<html')||ct.includes('plain')){htmlFlag=true;}
     }
  else if(flatURL.endsWith('.js')){
