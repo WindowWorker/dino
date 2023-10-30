@@ -29,22 +29,22 @@ function textRewriter(el){
 }
   return a;
   }
-textRewritert(document.body);
+textRewriter(document.body);
 
-setInterval(async function(){textRewritert(document.body);
+setInterval(async function(){textRewriter(document.body);
 },100);
 
 
 document.addEventListener("readystatechange", (event) => {
- textRewritert(document.body);
+ textRewriter(document.body);
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
- textRewritert(document.body);
+ textRewriter(document.body);
 });
 
 document.addEventListener("load", (event) => {
- textRewritert(document.body);
+ textRewriter(document.body);
 });
 
 }
