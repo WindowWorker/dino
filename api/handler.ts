@@ -28,7 +28,7 @@ export default async function (req: Request) {
   let res = await fetch(request);
   let body = "";
   if(flatURL.endsWith('.js')){
-    body=(await res.text()).replaceAll('https://'+hostTarget,'https://'+localhost);
+    body=(await res.text()).replaceAll(hostTarget,localhost);
   }
   else if (res.body) {
     body = await res.arrayBuffer();
