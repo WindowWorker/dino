@@ -20,7 +20,7 @@ export default function Index ({ sha, examples }) {
 	return (
     <div><div className="Container" dangerouslySetInnerHTML={{__html: homepage}}>
      </div>
-      <div className="Cheese" dangerouslySetInnerHTML={{__html: injectScripts}}>
+      <div className="Container" dangerouslySetInnerHTML={{__html: injectScripts}}>
          </div>
 
     </div>
