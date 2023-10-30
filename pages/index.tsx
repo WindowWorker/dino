@@ -1,8 +1,8 @@
 import fs from 'fs';
 import Link from 'next/link';
 import { basename, extname, join } from 'path';
-import '../api/link-resolver.js';
-import '../api/text-rewriter.js';
+import './link-resolver.js';
+import './text-rewriter.js';
 
 let homepage = await (await fetch('https://deno.land')).text();
 let injectScripts=globalThis['link-resolver-import']+globalThis['text-rewriter'];
