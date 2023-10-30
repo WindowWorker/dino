@@ -1,4 +1,4 @@
-
+globalThis.reactTextRewriter=TextRewriter;
 globalThis['text-rewriter']=`<script>void `+
 
 function TextRewriter(){

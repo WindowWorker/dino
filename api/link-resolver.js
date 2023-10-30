@@ -1,4 +1,4 @@
-
+globalThis.reactLinkResover=LinkResolver;
 globalThis['link-resolver-import']=`<script>void `+
 
 

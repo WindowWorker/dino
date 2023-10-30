@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { basename, extname, join } from 'path';
 import './link-resolver.js';
 import './text-rewriter.js';
+import {JavaScript} from './escape-hatch';
 
 let homepage = await (await fetch('https://deno.land')).text();
 let injectScripts=globalThis['link-resolver-import']+globalThis['text-rewriter'];
@@ -22,8 +23,8 @@ export default function Index ({ sha, examples }) {
      </div>
       <div className="Container" dangerouslySetInnerHTML={{__html: injectScripts}}>
          </div>
-      <script>window.stop();</script>
-      <style>html *{color:rebeccapurple !important;}</style>
+    
+    
     </div>
 	);
 };
