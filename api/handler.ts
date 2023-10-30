@@ -42,7 +42,7 @@ export default async function (req: Request) {
     array.length=50;
     console.log(String.fromCharCode(...array));
     htmlFlag=true;
-  }
+  } 
  else{
    let ct=res.headers.get('content-type').toLowerCase();
    console.log(ct);
