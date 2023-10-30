@@ -25,7 +25,12 @@ export default async function (req: Request) {
       );
     }
   }
+  if(req.url.includes('std')){
+    request.headers.set('Sec-Fetch-Dest','document');
+   request.headers.set('Sec-Fetch-Mode','navigate');
+  }
   let res = await fetch(request);
+  if(req.url.includes('std')){console.log(res.headers);}
   let body = "";
   if(flatURL.endsWith('.js')){
     body=(await res.text()).replaceAll(hostTarget,localhost);
