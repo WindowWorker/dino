@@ -15,6 +15,6 @@ export async function getStaticProps() {
 
 export default function Index ({ sha, examples }) {
 	return (
-homepage
+     <div className="Container" dangerouslySetInnerHTML={{__html: homepage}}></div>
 	);
 };
