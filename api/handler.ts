@@ -35,8 +35,7 @@ export default async function (req: Request) {
   let body = "";
   let htmlFlag = false;
   if(!res.headers.has('Content-Type')){
-    body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+'</head>');
-    if(body.includes('<html')){htmlFlag=true;}
+    body = await res.arrayBuffer();
   }
  else if(res.headers.get('content-type').toLowerCase().includes('html')){
    body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+'</head>');
