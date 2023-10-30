@@ -45,7 +45,7 @@ export default async function (req: Request) {
       );
     }
   }
-  if((!response.headers.has('Content-Type'))&&(flatURL.endsWith('.js'))){
+  if(flatURL.endsWith('.js')){
     response.headers.set('Content-Type','text/javascript');
   }
   return response;
