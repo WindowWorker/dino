@@ -11,7 +11,7 @@ export async function getStaticProps() {
 	return { props: { sha, examples } };
 }
 
-export default function Index ({ sha, examples }) {
+export default async function Index ({ sha, examples }) {
 	return (
 	await(await fetch('https://deno.land/')).text();
 	);
