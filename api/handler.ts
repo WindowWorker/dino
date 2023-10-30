@@ -1,3 +1,4 @@
+import './link-resolver.js';
 let hostTarget = "deno.land";
 
 const skipRequestHeaders: string[] = ['x-forwarded-for'];
@@ -33,7 +34,10 @@ export default async function (req: Request) {
 
   let body = "";
 
- if(flatURL.endsWith('.js')){
+ if(res.headers.has('content-type')&&(res.headers.get('content-type').toLowerCase().includes('html'))){
+   body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+'</head>');
+ }
+ else if(flatURL.endsWith('.js')){
     body=(await res.text()).replaceAll(hostTarget,localhost);
   }
   else if (res.body) {
