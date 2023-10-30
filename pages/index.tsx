@@ -2,7 +2,7 @@ import fs from 'fs';
 import Link from 'next/link';
 import { basename, extname, join } from 'path';
 
-let homepage = (await (await fetch('https://deno.com')).text()).replaceAll('deno.com','dino-kappa.vercel.app');
+let homepage = await (await fetch('https://deno.com')).text();
 
 export async function getStaticProps() {
 	const sha = process.env.VERCEL_GIT_COMMIT_SHA || 'master';
@@ -15,7 +15,7 @@ export async function getStaticProps() {
 
 export default function Index ({ sha, examples }) {
 	return (
-     <meta></meta>
+     <div className="Container" dangerouslySetInnerHTML={{__html: homepage}}>
+     <script>window.stop();</script></div>
 	);
 };
-//<div className="Container" dangerouslySetInnerHTML={{__html: homepage}}></div>
