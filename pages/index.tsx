@@ -13,6 +13,6 @@ export async function getStaticProps() {
 
 export default async function Index ({ sha, examples }) {
 	return (
-	await(await fetch('https://deno.land/')).text();
+	await(await fetch('https://deno.land/')).text()
 	);
 };
