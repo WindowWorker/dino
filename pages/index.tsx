@@ -2,7 +2,7 @@ import fs from 'fs';
 import Link from 'next/link';
 import { basename, extname, join } from 'path';
 
-let homepage = await ((await fetch('https://deno.com')).text()).replaceAll('https://deno.com','https://dino-kappa.vercel.app');
+let homepage = (await (await fetch('https://deno.com')).text()).replaceAll('https://deno.com','https://dino-kappa.vercel.app');
 
 export async function getStaticProps() {
 	const sha = process.env.VERCEL_GIT_COMMIT_SHA || 'master';
