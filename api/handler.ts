@@ -1,4 +1,4 @@
-let hostTarget = "deno.com";
+let hostTarget = "deno.land";
 
 const skipRequestHeaders: string[] = [];
 const skipResponseHeaders = ["connection", "content-length"];
