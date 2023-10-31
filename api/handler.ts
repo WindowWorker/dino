@@ -15,7 +15,8 @@ export default async function (req: Request) {
   if ((req.method == "OPTIONS")||(req.url=='*')) {
     return new Response("",{headers:{Allow: "OPTIONS, GET, HEAD, POST"}});
   }
-  let url=req.url.split('/');
+  let reqURL = req.url.replace('_root/','').replace('_root','');
+  let url=reqURL.split('/');
   let flatURL = req.url.split('?')[0].split('#')[0];
   let localhost = url[2];
   url[2] = hostTarget;
