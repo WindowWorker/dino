@@ -19,12 +19,10 @@ export async function getStaticProps() {
 
 export default function Index ({ sha, examples }) {
 	return (
-    <div><div className="Container" dangerouslySetInnerHTML={{__html: homepage}}>
+    <div>
+      <div className="Container" dangerouslySetInnerHTML={{__html: homepage}}>
      </div>
       <JavaScript src={injectScripts}/>
          </div>
-    
-    
-    </div>
 	);
 };
