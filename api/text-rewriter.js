@@ -1,6 +1,7 @@
 globalThis.reactTextRewriter=TextRewriter;
 
 
+
 function TextRewriter(){
 
 function textRewriter(el){

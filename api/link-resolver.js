@@ -1,6 +1,6 @@
 globalThis.reactLinkResover=LinkResolver;
 
-
+if(window?.location?.)
 
 function LinkResolver(){
   
