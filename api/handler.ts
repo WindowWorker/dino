@@ -21,6 +21,9 @@ export default async function (req: Request) {
   let flatURL = reqURL.split('?')[0].split('#')[0];
   let localhost = url[2];
   url[2] = hostTarget;
+  if(reqURL.includes('hostname=')){
+    url[2]=reqURL.split('hostname')
+  }
   let request = new Request(url.join("/"));
   for (let header in request.headers.keys) {
     if (header) {
