@@ -7,7 +7,7 @@ if(window?.location?.href.includes?.('/std')||window?.location?.href.includes?.(
 function LinkResolver(){
   
 if(!globalThis.hostTargetList){
-  globalThis.hostTargetList = ['deno.land','deno.com','docs.deno.com'];
+  globalThis.hostTargetList = ['deno.land','deno.com','www.deno.com','docs.deno.com'];
 
 }
 
