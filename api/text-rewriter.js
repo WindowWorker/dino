@@ -1,6 +1,6 @@
 globalThis.reactTextRewriter=TextRewriter;
 
-if(window?.location?.href.includes?.('/std')){
+if(window?.location?.href.includes?.('/std')||window?.location?.href.includes?.('hostname=docs.deno.com')){
     TextRewriter();
 }
 
