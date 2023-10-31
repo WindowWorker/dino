@@ -22,7 +22,7 @@ export default async function (req: Request) {
   let localhost = url[2];
   url[2] = hostTarget;
   if(reqURL.includes('hostname=')){
-    url[2]=reqURL.split('hostname')
+    url[2]=reqURL.split('hostname=')[1].split('&')[0].split('#')[0];
   }
   let request = new Request(url.join("/"));
   for (let header in request.headers.keys) {
