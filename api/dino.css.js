@@ -1,8 +1,8 @@
 globalThis.dinoCSS=`<style>
 
-html *{
+html{
 
-color:rebeccapurple !important;
+filter:hue-rotate(135deg)
 
 }
 
