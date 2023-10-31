@@ -20,3 +20,5 @@ function NoSSRJavaScript(props) {
 const JavaScript = dynamic(props => Promise.resolve(NoSSRYourComponent,props), {
   ssr: false,
 })
+
+export JavaScript;
