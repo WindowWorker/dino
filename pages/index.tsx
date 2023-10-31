@@ -21,7 +21,7 @@ export default function Index ({ sha, examples }) {
 	return (
     <div><div className="Container" dangerouslySetInnerHTML={{__html: homepage}}>
      </div>
-      <JavaScript src=injectScripts/>
+      <JavaScript src={{injectScripts}}/>
          </div>
     
     
