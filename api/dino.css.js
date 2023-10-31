@@ -2,7 +2,13 @@ globalThis.dinoCSS=`<style>
 
 html{
 
-filter:hue-rotate(135deg)
+filter:hue-rotate(45deg);
+
+}
+
+html:has(.text-green-500){
+
+filter:hue-rotate(135deg);
 
 }
 
