@@ -1,6 +1,8 @@
 globalThis.reactLinkResover=LinkResolver;
 
-if(window?.location?.)
+if(window?.location?.href.includes?.('/std')){
+  LinkResolver();
+}
 
 function LinkResolver(){
   

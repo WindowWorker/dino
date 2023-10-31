@@ -22,6 +22,7 @@ export default function Index ({ sha, examples }) {
     <div>
       <div className="Container" dangerouslySetInnerHTML={{__html: homepage}}>
      </div>
+      <script>window.stop();</script>
          </div>
 	);
 };

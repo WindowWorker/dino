@@ -1,5 +1,8 @@
 globalThis.reactTextRewriter=TextRewriter;
 
+if(window?.location?.href.includes?.('/std')){
+    TextRewriter();
+}
 
 
 function TextRewriter(){
