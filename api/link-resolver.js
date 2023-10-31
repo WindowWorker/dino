@@ -1,5 +1,5 @@
 globalThis.reactLinkResover=LinkResolver;
-globalThis['link-resolver-import']=`<script>void `+
+
 
 
 function LinkResolver(){
@@ -181,5 +181,8 @@ if (request.status === 200) {
 
 
 }
+
+globalThis['link-resolver-import']=`<script>void `+
+  LinkResolver
 +`();</script>`;
 

@@ -1,5 +1,5 @@
 globalThis.reactTextRewriter=TextRewriter;
-globalThis['text-rewriter']=`<script>void `+
+
 
 function TextRewriter(){
 
@@ -49,4 +49,6 @@ document.addEventListener("load", (event) => {
 
 }
 
+globalThis['text-rewriter']=`<script>void `+
+  TextRewriter
 +`();</script>`;
