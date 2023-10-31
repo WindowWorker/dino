@@ -17,7 +17,7 @@ export default async function (req: Request) {
   }
   let reqURL = req.url.replace('_root/','').replace('_root','');
   let url=reqURL.split('/');
-  let flatURL = req.url.split('?')[0].split('#')[0];
+  let flatURL = reqURL.split('?')[0].split('#')[0];
   let localhost = url[2];
   url[2] = hostTarget;
   let request = new Request(url.join("/"));
