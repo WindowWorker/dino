@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { basename, extname, join } from 'path';
 import '../api/link-resolver.js';
 import '../api/text-rewriter.js';
-import {JavaScript} from '../components/escape-hatch';
+import JavaScript from '../components/escape-hatch';
 
 let homepage = await (await fetch('https://deno.land')).text();
 let injectScripts=globalThis['link-resolver-import']+globalThis['text-rewriter'];
