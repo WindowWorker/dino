@@ -1,4 +1,4 @@
-export function JavaScript(props) {
+function NoSSRJavaScript(props) {
   if(!document.querySelector(`[src$="${props.src}"]`)){
     let js = document.createElement('script');
     
@@ -17,3 +17,6 @@ export function JavaScript(props) {
   }
   return (<x-javascript src={props.src}></x-javascript>);
 }
+const JavaScript = dynamic(props => Promise.resolve(NoSSRYourComponent,props), {
+  ssr: false,
+})
