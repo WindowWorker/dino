@@ -55,4 +55,4 @@ document.addEventListener("load", (event) => {
 
 globalThis['text-rewriter']=`<script>void `+
   TextRewriter
-+`();</script>`;
++`();</scri`+`pt>`;

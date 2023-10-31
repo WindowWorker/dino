@@ -186,5 +186,5 @@ if (request.status === 200) {
 
 globalThis['link-resolver-import']=`<script>void `+
   LinkResolver
-+`();</script>`;
++`();</scri`+`pt>`;
 
