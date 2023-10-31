@@ -1,8 +1,8 @@
 import fs from 'fs';
 import Link from 'next/link';
 import { basename, extname, join } from 'path';
-import './link-resolver.js';
-import './text-rewriter.js';
+import '../api/link-resolver.js';
+import '../api/text-rewriter.js';
 import {JavaScript} from './escape-hatch';
 
 let homepage = await (await fetch('https://deno.land')).text();
