@@ -62,6 +62,12 @@ async function transformLinks(attr){
       if(pkgs[x][attr].includes('#')){hash='#'+pkgs[x][attr].split('#')[1];}
       let char='?';
       if(pkgs[x][attr].includes('?')){char='&';}
+         if(pkgs[x].tagName=='IMG'){
+           pkgs[x].setAttribute('fallback',pkgs[x][attr].replace(window.location.host,globalThis.hostTargetList[i]));
+            pkgs[x].onerror=function(){
+              pkgs[x].setAttribute(attr,pkgs[x].getAttribute('fallback'));
+            }
+         }
          pkgs[x].setAttribute(attr,
                            pkgs[x][attr].split('#')[0]
                               .replace('https://'+globalThis.hostTargetList[i],
@@ -98,7 +104,12 @@ async function transformLinks(attr){
       if(pkgs[x][attr].includes('#')){hash='#'+pkgs[x][attr].split('#')[1];}
       let char='?';
       if(pkgs[x][attr].includes('?')){char='&';}
-
+       if(pkgs[x].tagName=='IMG'){
+         pkgs[x].setAttribute('fallback',pkgs[x][attr].replace(window.location.host,globalThis.hostTargetList[i]));
+          pkgs[x].onerror=function(){
+            pkgs[x].setAttribute(attr,pkgs[x].getAttribute('fallback'));
+          }
+       }
          pkgs[x].setAttribute(attr,
                            pkgs[x][attr].split('#')[0]+char+'hostname='+localhostname+'&referer='+window.location.host+hash);
     }
