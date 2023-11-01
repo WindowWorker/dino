@@ -17,5 +17,9 @@ filter:hue-rotate(135deg);
 display:none !important;
 visibility:hidden !important;
 }
-</style>`;
+</style><script>
+if(document.querySelector('.text-green-500')){
+  document.currentScript.outerHTML="<style>html{filter:hue-rotate(135deg) !important;}</style>";
+}
+</scr`+`ipt>`;
 
