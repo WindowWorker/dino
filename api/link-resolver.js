@@ -45,7 +45,7 @@ setInterval(function(){
 async function transformLinks(attr){
 
 
- let pkgs = document.querySelectorAll('['+attr+'^="/"]:not([backup]),['+attr+'^="./"]:not([backup]),['+attr+'^="../"]:not([backup]),['+attr+']:not(['+attr+'*=":"]):not([backup])');
+ let pkgs = document.querySelectorAll('['+attr+'^="/"]:not([backup]),['+attr+'^="./"]:not([backup]),['+attr+'^="../"]:not([backup]),['+attr+']:not(['+attr+'*=":"]):not([backup],[fallback])');
   let pkgs_length = pkgs.length;
   for(let i=0;i<pkgs_length;i++){
     await backupNode(pkgs[i]);
@@ -54,7 +54,7 @@ async function transformLinks(attr){
 
   const hostTargetList_length = globalThis.hostTargetList.length;
   for(let i=0;i<hostTargetList_length;i++){
-    pkgs = document.querySelectorAll('['+attr+'^="https://'+globalThis.hostTargetList[i]+'"]:not([backup],[fallback])');
+    pkgs = document.querySelectorAll('['+attr+'^="https://'+globalThis.hostTargetList[i]+'"]:not([backup]):not([fallback])');
     pkgs_length = pkgs.length;
     for(let x=0;x<pkgs_length;x++){
       await backupNode(pkgs[x]);
@@ -97,7 +97,7 @@ async function transformLinks(attr){
 
     if(!window.location.href.includes('hostname=')){return;}
     let localhostname = window.location.href.split('hostname=')[1].split('&')[0].split('?')[0].split('#')[0];
-    pkgs = document.querySelectorAll('['+attr+'^="'+window.location.origin+'"]:not(['+attr+'*="hostname="],['+attr+'$="tour"],['+attr+'$="tour/"],[fallback])');
+    pkgs = document.querySelectorAll('['+attr+'^="'+window.location.origin+'"]:not(['+attr+'*="hostname="],['+attr+'$="tour"],['+attr+'$="tour/"]):not([fallback])');
     pkgs_length = pkgs.length;
     for(let x=0;x<pkgs_length;x++){
       let hash='';
