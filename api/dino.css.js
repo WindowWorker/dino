@@ -13,7 +13,7 @@ filter:hue-rotate(135deg);
 }
 
 img,svg{
-filter: grayscale(1) sepia(1) hue-rotate(90deg);
+filter: grayscale(1) sepia(1) saturate(1.5) hue-rotate(90deg);
 }
 
 [href*="/pricing"]{
