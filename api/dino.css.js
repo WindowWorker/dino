@@ -12,10 +12,15 @@ filter:hue-rotate(135deg);
 
 }
 
+img,svg{
+filter: grayscale(1) sepia(1) hue-rotate(90deg);
+}
 
 [href*="/pricing"]{
 display:none !important;
 visibility:hidden !important;
+
+
 }
 </style><script>
 if(document.querySelector('.text-green-500')){
