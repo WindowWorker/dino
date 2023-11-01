@@ -54,7 +54,7 @@ async function transformLinks(attr){
 
   const hostTargetList_length = globalThis.hostTargetList.length;
   for(let i=0;i<hostTargetList_length;i++){
-    pkgs = document.querySelectorAll('['+attr+'^="https://'+globalThis.hostTargetList[i]+'"]:not([backup])');
+    pkgs = document.querySelectorAll('['+attr+'^="https://'+globalThis.hostTargetList[i]+'"]:not([backup],[fallback])');
     pkgs_length = pkgs.length;
     for(let x=0;x<pkgs_length;x++){
       await backupNode(pkgs[x]);
@@ -62,6 +62,12 @@ async function transformLinks(attr){
       if(pkgs[x][attr].includes('#')){hash='#'+pkgs[x][attr].split('#')[1];}
       let char='?';
       if(pkgs[x][attr].includes('?')){char='&';}
+         if(pkgs[x].className=='IMG'){
+           pkgs[x].setAttribute('fallback',pkgs[x][attr]);
+            pkgs[x].onerror=function(){
+              pkgs[x].setAttribute(attr,pkgs[x].getAttribute('fallback'));
+            }
+         }
          pkgs[x].setAttribute(attr,
                            pkgs[x][attr].split('#')[0]
                               .replace('https://'+globalThis.hostTargetList[i],
