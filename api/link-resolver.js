@@ -97,7 +97,7 @@ async function transformLinks(attr){
 
     if(!window.location.href.includes('hostname=')){return;}
     let localhostname = window.location.href.split('hostname=')[1].split('&')[0].split('?')[0].split('#')[0];
-    pkgs = document.querySelectorAll('['+attr+'^="'+window.location.origin+'"]:not(['+attr+'*="hostname="],['+attr+'$="tour"],['+attr+'$="tour/"])');
+    pkgs = document.querySelectorAll('['+attr+'^="'+window.location.origin+'"]:not(['+attr+'*="hostname="],['+attr+'$="tour"],['+attr+'$="tour/"],[fallback])');
     pkgs_length = pkgs.length;
     for(let x=0;x<pkgs_length;x++){
       let hash='';
