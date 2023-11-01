@@ -65,7 +65,7 @@ async function transformLinks(attr){
          if(pkgs[x].tagName=='IMG'){
            pkgs[x].setAttribute('fallback',pkgs[x][attr].replace(window.location.host,globalThis.hostTargetList[i]));
             pkgs[x].onerror=function(){
-              pkgs[x].setAttribute(attr,pkgs[x].getAttribute('fallback'));
+              pkgs[x].setAttribute('fallback', pkgs[x][attr].replace(window.location.host, globalThis.hostTargetList[i]));
             }
          }
          pkgs[x].setAttribute(attr,
@@ -107,7 +107,7 @@ async function transformLinks(attr){
        if(pkgs[x].tagName=='IMG'){
          pkgs[x].setAttribute('fallback',pkgs[x][attr].replace(window.location.host,globalThis.hostTargetList[i]));
           pkgs[x].onerror=function(){
-            pkgs[x].setAttribute(attr,pkgs[x].getAttribute('fallback'));
+            pkgs[x].setAttribute('fallback', pkgs[x][attr].replace(window.location.host, localhostname));
           }
        }
          pkgs[x].setAttribute(attr,
