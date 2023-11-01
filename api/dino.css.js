@@ -1,7 +1,5 @@
 globalThis.dinoCSS=`<style>
 
-
-
 html{
 
 filter:hue-rotate(135deg);
