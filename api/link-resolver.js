@@ -36,11 +36,15 @@ setInterval(function(){
   transformLinks('src');
   transformLinks('action');
 
-
+  addLocation();
   linkSheets();
 },100);
 
-
+function addLocation(){
+  let h = document.querySelector('html:not([location])');
+  if(h){h.setAttribute('location',location.htef);}
+  
+}
 
 async function transformLinks(attr){
 
