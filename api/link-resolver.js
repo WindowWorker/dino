@@ -4,14 +4,14 @@ if(window?.location?.href.includes?.('/std')||window?.location?.href.includes?.(
   LinkResolver();
 }
 
-if(window?.location?.pathname=='/'){
+if((window?.location?.pathname=='/')&&(!window.location.href.includes('fresh'))){
   window.location.href='/';
 }
 
 function LinkResolver(){
   
 if(!globalThis.hostTargetList){
-  globalThis.hostTargetList = ['deno.land','deno.com','www.deno.com','docs.deno.com','www.deno.land'];
+  globalThis.hostTargetList = ['deno.land','deno.com','www.deno.com','docs.deno.com','www.deno.land','fresh.deno.dev'];
 
 }
 
