@@ -45,12 +45,12 @@ export default async function (req: Request) {
     const typedArray = new Uint8Array(body);
     let array = [...typedArray];
     array.length=50;
-    console.log(String.fromCharCode(...array));
+    //console.log(String.fromCharCode(...array));
     htmlFlag=true;
   } 
  else{
    let ct=res.headers.get('content-type').toLowerCase();
-   console.log(ct);
+   //console.log(ct);
    if(ct.includes('html')){
    body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+globalThis['text-rewriter']+globalThis.dinoCSS+'</head>');
  }
@@ -66,7 +66,7 @@ export default async function (req: Request) {
     const typedArray = new Uint8Array(body);
     let array = [...typedArray];
     array.length=50;
-    console.log(String.fromCharCode(...array));
+    //console.log(String.fromCharCode(...array));
   }
 }
   let response = new Response(body);
@@ -106,6 +106,6 @@ export default async function (req: Request) {
   if(flatURL.endsWith('.jpg')||flatURL.endsWith('.jpeg')){
     response.headers.set('Content-Type','image/jpeg');
   }
-  console.log(response.headers.get('content-type'));
+  //console.log(response.headers.get('content-type'));
   return response;
 }
