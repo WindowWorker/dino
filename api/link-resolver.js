@@ -69,7 +69,7 @@ async function transformLinks(attr){
          if(pkgs[x].tagName=='IMG'){
            pkgs[x].setAttribute('fallback',pkgs[x][attr].replace(window.location.host,globalThis.hostTargetList[i]));
             pkgs[x].onerror=function(){
-              pkgs[x].setAttribute('fallback', pkgs[x][attr].replace(window.location.host, globalThis.hostTargetList[i]));
+              pkgs[x].setAttribute('src', pkgs[x][attr].replace(window.location.host, globalThis.hostTargetList[i]));
             }
          }
          pkgs[x].setAttribute(attr,
