@@ -9,7 +9,7 @@ function LinkResolver(){
 if(!globalThis.hostTargetList){
   globalThis.hostTargetList = ['deno.land','deno.com','www.deno.com','docs.deno.com'];
 
-}f
+}
 
 
 
