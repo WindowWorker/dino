@@ -6,7 +6,7 @@ filter:hue-rotate(135deg);
 
 }
 
-html[location*="/manual"]{
+html[location*="/std"]{
 
 filter:hue-rotate(45deg);
 
