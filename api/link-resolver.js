@@ -42,7 +42,7 @@ setInterval(function(){
 
 function addLocation(){
   let h = document.querySelector('html:not([location])');
-  if(h){h.setAttribute('location',location.htef);}
+  if(h){h.setAttribute('location',location.href);}
   
 }
 
