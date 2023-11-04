@@ -4,6 +4,10 @@ if(window?.location?.href.includes?.('/std')||window?.location?.href.includes?.(
   LinkResolver();
 }
 
+if(window?.location?.pathname=='/'){
+  window.location.href='/';
+}
+
 function LinkResolver(){
   
 if(!globalThis.hostTargetList){
