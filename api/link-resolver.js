@@ -109,7 +109,7 @@ async function transformLinks(attr){
       let char='?';
       if(pkgs[x][attr].includes('?')){char='&';}
        if(pkgs[x].tagName=='IMG'){
-         pkgs[x].setAttribute('fallback',pkgs[x][attr].replace(window.location.host,globalThis.localhostname));
+         pkgs[x].setAttribute('fallback',pkgs[x][attr].replace(window.location.host,localhostname));
           pkgs[x].onerror=function(){
             pkgs[x].setAttribute('fallback', pkgs[x][attr].replace(window.location.host, localhostname));
           }
