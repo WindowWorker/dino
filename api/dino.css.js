@@ -20,6 +20,7 @@ a[aria-label="Landing Page"][href="https://deno.typescripts.org/"]  {
   background-size: contain;
 }
 
+a[aria-label="Landing Page"][href="https://deno.typescripts.org/"]>svg{visibility:hidden;}
 
 html img:not([src*=".gif"]),svg,h1,h2,h3,a,:not(pre,code) span[class*="text"]{filter: sepia(1) hue-rotate(90deg);}
 
