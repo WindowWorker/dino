@@ -51,11 +51,11 @@ export default async function (req: Request) {
  else{
    let ct=res.headers.get('content-type').toLowerCase();
    //console.log(ct);
-   if(ct.includes('html')){
-   body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+globalThis['text-rewriter']+globalThis.dinoCSS+'</head>');
- }
- else if(ct.includes('text')){
-      body=(await res.text()).replace('</head>',globalThis['link-resolver-import']+globalThis['text-rewriter']+globalThis.dinoCSS+'</head>');
+   if(ct.includes('text')){
+      let headText=globalThis['link-resolver-import']+globalThis['text-rewriter']+globalThis.dinoCSS;
+      body=(await res.text())
+        .replace('<head>','<head>'+headText)
+        .replace('</head>',headText+'</head>');
       if(body.includes('<html')||ct.includes('plain')){htmlFlag=true;}
     }
  else if(flatURL.endsWith('.js')){
