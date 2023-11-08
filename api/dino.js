@@ -1,3 +1,10 @@
+if(window?.location?.href.includes?.('/std')
+ ||window?.location?.href.includes?.('/manual')
+ ||window?.location?.href.includes?.('hostname=docs.deno.com')){
+  Dinoify();
+}
+
+
 
 function Dinoify(){
 
