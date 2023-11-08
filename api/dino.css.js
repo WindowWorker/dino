@@ -22,15 +22,31 @@ a[aria-label="Landing Page"][href="https://deno.typescripts.org/"]  {
 
 a[aria-label="Landing Page"][href="https://deno.typescripts.org/"]::after {
   content: "Dino";
+  font-weight: bold;
 }
 
 a[aria-label="Landing Page"][href="https://deno.typescripts.org/"]>svg{visibility:hidden;}
 
-html img:not([src*=".gif"]),svg,h1,h2,h3,a,:not(pre,code) span[class*="text"]{filter: sepia(1) hue-rotate(90deg);}
+html img:not([src*=".gif"]),svg,h1,h2,h3,a,:not(pre,code) span[class*="text"],
+button[class*="disabled:invisible"]
+{
+filter: sepia(1) hue-rotate(90deg);
+}
 
+HIDDEN-STUFF,
+.iconExternalLink_nPIU,
 [href*="/pricing"]{
 display:none !important;
 visibility:hidden !important;
 }
+
+DINO-IMAGES,
+a[aria-label="Landing Page"][href="https://deno.typescripts.org/"],
+img[src*="Dino_from_%22The_Flintstones%22.gif"]
+{
+filter:hue-rotate(-160deg)  drop-shadow(1px 1px 0.1rem white) drop-shadow(-1px -1px 0.1rem white) !important;
+}
+
+
 </style>`;
 

@@ -1,6 +1,7 @@
 import './link-resolver.js';
 import './text-rewriter.js';
 import './dino.css.js';
+import './dino.js';
 let hostTarget = "deno.land";
 
 const skipRequestHeaders: string[] = ['x-forwarded-for'];
@@ -10,6 +11,11 @@ const skipResponseHeaders = [
                              'x-frame-options',
                              'x-content-type-options'
                             ];
+
+let injects = globalThis['link-resolver-import']+
+  globalThis['text-rewriter']+
+  globalThis.dinoCSS+ 
+  globalThis.dino;
 
 export default async function (req: Request) {
 
@@ -52,7 +58,7 @@ export default async function (req: Request) {
    let ct=res.headers.get('content-type').toLowerCase();
    //console.log(ct);
    if(ct.includes('text')){
-      let headText=globalThis['link-resolver-import']+globalThis['text-rewriter']+globalThis.dinoCSS;
+      let headText=injects;
       body=(await res.text())
         .replace('<head>','<head>'+headText)
         .replace('</head>',headText+'</head>');
