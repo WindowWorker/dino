@@ -76,6 +76,8 @@ async function transformLinks(attr){
               pkgs[x].setAttribute('src', pkgs[x][attr].replace(window.location.host, globalThis.hostTargetList[i]));
             }
            pkgs[x].style.backgroundImage=`url(`+pkgs[x][attr].replace(window.location.host, globalThis.hostTargetList[i])+`)`;
+            pkgs[x].style.backgroundSize="contain";
+            pkgs[x].style.backgroundRepeat="no-repeat";
          }
          pkgs[x].setAttribute(attr,
                            pkgs[x][attr].split('#')[0]
@@ -119,6 +121,8 @@ async function transformLinks(attr){
             pkgs[x].setAttribute('fallback', pkgs[x][attr].replace(window.location.host, localhostname));
           }
          pkgs[x].style.backgroundImage=`url(`+pkgs[x][attr].replace(window.location.host, localhostname)+`)`;
+         pkgs[x].style.backgroundSize="contain";
+         pkgs[x].style.backgroundRepeat="no-repeat";
        }
          pkgs[x].setAttribute(attr,
                            pkgs[x][attr].split('#')[0]+char+'hostname='+localhostname+'&referer='+window.location.host+hash);
