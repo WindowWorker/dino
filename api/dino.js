@@ -2,7 +2,7 @@
 function Dinoify(){
 
 setInterval(function(){
-let dinos = document.querySelectorAll('img[src*="deno-looking-up.svg"],img[src*="logo"][src*=".svg"]');
+let dinos = document.querySelectorAll('img[src*="deno-looking-up.svg"],img[src*="logo"][src*=".svg"],img[src*="deno-"]');
 let dinos_length = dinos.length;
 
   for(let i=0;i<dinos_length;i++){try{

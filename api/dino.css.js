@@ -21,7 +21,7 @@ a[aria-label="Landing Page"][href="https://deno.typescripts.org/"]  {
 }
 
 a[aria-label="Landing Page"][href="https://deno.typescripts.org/"]::after {
-  content: "Dino";
+  --content: "Dino";
   font-weight: bold;
 }
 
