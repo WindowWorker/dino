@@ -20,8 +20,8 @@ a[aria-label="Landing Page"]  {
   background-size: contain;
 }
 
-a[aria-label="Landing Page"][href="https://deno.typescripts.org/"]::after {
-  --content: "Dino";
+a[aria-label="Landing Page"][href="https://deno.typescripts.org/"]::before {
+  content: "Dino";
   font-weight: bold;
 }
 
@@ -35,7 +35,7 @@ filter: sepia(1) hue-rotate(90deg);
 
 HIDDEN-STUFF,
 .iconExternalLink_nPIU,
-svg[aria-label="Deno Logo"],
+svg[aria-label*="Deno"],
 [href*="/pricing"]{
 display:none !important;
 visibility:hidden !important;
