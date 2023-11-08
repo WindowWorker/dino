@@ -234,7 +234,7 @@ const elems_length = elems.length;
     if(!dk){return;}
     dk.onclick=function(){window.location.href='https://deno.typescripts.org/';};
     dk.style.cursor='pointer';
-    //dk.document.querySelector('a[href^="https://deno.typescripts.org/?"]').removeAttribute('href');
+    dk.document.querySelector('a[href^="https://deno.typescripts.org/?"]').removeAttribute('href');
     
   }
   
