@@ -50,6 +50,9 @@ opacity:50%;
 max-height:100vh;
 }
 
+h1{
+font-size:unset !important;
+}
 
 </style>`;
 
