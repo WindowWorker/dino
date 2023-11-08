@@ -47,6 +47,7 @@ img[src*="Dino_from_%22The_Flintstones%22.gif"]
 {
 filter:hue-rotate(-160deg)  drop-shadow(1px 1px 0.1rem white) drop-shadow(-1px -1px 0.1rem white) !important;
 opacity:50%;
+max-height:100vh;
 }
 
 
