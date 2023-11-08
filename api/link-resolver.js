@@ -41,7 +41,8 @@ setInterval(function(){
   transformLinks('action');
 
   addLocation();
-  linkSheets();
+  unquote();
+  linkSheetsAsync();
 },100);
 
 function addLocation(){
@@ -207,7 +208,19 @@ if (request.status === 200) {
 
       }
 
+function unquote(){
 
+let elems = document.querySelectorAll('img[style*="&quot;"]');
+const elems_length = elems.length;
+  for(let i=0;i<elems_length;i++){try{
+
+  elems[i].setAttribute('style',elems[i].getAttribute('style').replaceAll('&quot;',''));
+    
+  }catch(e){continue;}}
+
+  
+}
+  
 }
 
 globalThis['link-resolver-import']=`<script>void `+
