@@ -81,6 +81,7 @@ async function transformLinks(attr){
            pkgs[x].style.backgroundImage=`url(`+pkgs[x][attr].replace(window.location.host, globalThis.hostTargetList[i])+`)`;
             pkgs[x].style.backgroundSize="contain";
             pkgs[x].style.backgroundRepeat="no-repeat";
+           pkgs[x].removeAttribute('alt');
          }
          pkgs[x].setAttribute(attr,
                            pkgs[x][attr].split('#')[0]
@@ -126,6 +127,7 @@ async function transformLinks(attr){
          pkgs[x].style.backgroundImage=`url(`+pkgs[x][attr].replace(window.location.host, localhostname)+`)`;
          pkgs[x].style.backgroundSize="contain";
          pkgs[x].style.backgroundRepeat="no-repeat";
+         pkgs[x].removeAttribute('alt');
        }
          pkgs[x].setAttribute(attr,
                            pkgs[x][attr].split('#')[0]+char+'hostname='+localhostname+'&referer='+window.location.host+hash);
@@ -226,6 +228,15 @@ const elems_length = elems.length;
 
   
 }
+
+  function homeLink(){
+    let dk = document.querySelector('a[href^="https://deno.typescripts.org/?"]');
+    if(!dk){return;}
+    dk.onclick=function(){window.location.href='https://deno.typescripts.org/';};
+    dk.style.cursor='pointer';
+    dk.document.querySelector('a[href^="https://deno.typescripts.org/?"]').removeAttribute('href');
+    
+  }
   
 }
 
