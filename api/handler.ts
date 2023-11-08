@@ -3,6 +3,7 @@ import './text-rewriter.js';
 import './dino.css.js';
 import './dino.js';
 let hostTarget = "deno.land";
+let docsTarget = "docs.deno.com";
 
 const skipRequestHeaders: string[] = ['x-forwarded-for'];
 const skipResponseHeaders = [
@@ -29,6 +30,9 @@ export default async function (req: Request) {
   url[2] = hostTarget;
   if(reqURL.includes('hostname=')){
     url[2]=reqURL.split('hostname=')[1].split('&')[0].split('#')[0];
+  }
+  if(reqURL.includes('/manual')){
+    url[2]=docsTarget;
   }
   let request = new Request(url.join("/"));
   for (let header in request.headers.keys) {
