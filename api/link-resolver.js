@@ -109,7 +109,7 @@ async function transformLinks(attr){
 
     if(!window.location.href.includes('hostname=')){return;}
     let localhostname = window.location.href.split('hostname=')[1].split('&')[0].split('?')[0].split('#')[0];
-    pkgs = document.querySelectorAll('['+attr+'^="'+window.location.origin+'"]:not(['+attr+'*="hostname="],['+attr+'$="tour"],['+attr+'$="tour/"]):not([fallback])');
+    pkgs = document.querySelectorAll('['+attr+'^="'+window.location.origin+'"]:not(['+attr+'*="hostname="],['+attr+'$="tour/"]):not([fallback])');
     pkgs_length = pkgs.length;
     for(let x=0;x<pkgs_length;x++){
       let hash='';
@@ -144,6 +144,10 @@ await new Promise((resolve, reject) => {setTimeout(resolve,100);})
 
   }
   let backup = element.cloneNode(true);
+  let backupDocs = element.cloneNode(true);
+  backupDocs.href=backupDocs.href+'?hostname=docs.deno.com';
+  backupDocs.setAttribute('backup',true);
+  document.head.insertBefore(backupDocs,document.head.firstElementChild);
   let backupId = new Date().getTime();
   backup.setAttribute('backup',backupId);
   document.head.insertBefore(backup,document.head.firstElementChild);
