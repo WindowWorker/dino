@@ -1,4 +1,6 @@
 if(window?.location?.href.includes?.('/std')
+    ||window?.location?.href.includes?.('/api')
+    ||window?.location?.href.includes?.('@')
  ||window?.location?.href.includes?.('/manual')
  ||window?.location?.href.includes?.('hostname=docs.deno.com')){
   Dinoify();
