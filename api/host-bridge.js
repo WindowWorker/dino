@@ -25,7 +25,7 @@ function swapHost(){
     ||window?.location?.href.includes?.('@')
     ||window?.location?.href.includes?.('/manual')){
 
-    if(!window.location.href.startsWith('https://docs-')){
+    if(!(window.location.href.startsWith('https://docs-'))&&!(window.location.href.startsWith('https://std-'))){
       window.location.href=window.location.href.replaceAll(window.location.host,'docs-'+window.location.host).split('?')[0];
     }
     
