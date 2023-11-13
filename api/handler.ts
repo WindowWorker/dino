@@ -48,6 +48,7 @@ export default async function (req: Request) {
       );
     }
   }
+  resquest = addCacheHeaders(resquest);
   let res = await fetch(request);
 
   let body = "";
@@ -119,5 +120,26 @@ export default async function (req: Request) {
     response.headers.set('Content-Type','image/jpeg');
   }
   //console.log(response.headers.get('content-type'));
+  response = addCacheHeaders(response);
   return response;
+}
+
+
+function addCacheHeaders(re){
+  re.headers.set("CDN-Cache-Control",
+    "public, max-age=96400, s-max-age=96400, stale-if-error=31535000, stale-while-revalidate=31535000"
+ );
+  re.headers.set("Cache-Control",
+   "public, max-age=96400, s-max-age=96400, stale-if-error=31535000, stale-while-revalidate=31535000"
+);
+  re.headers.set( "Cloudflare-CDN-Cache-Control",
+    "public, max-age=96400, s-max-age=96400, stale-if-error=31535000, stale-while-revalidate=31535000"
+);
+  re.headers.set("Surrogate-Control",
+   "public, max-age=96400, s-max-age=96400, stale-if-error=31535000, stale-while-revalidate=31535000"
+);
+  re.headers.set("Vercel-CDN-Cache-Control",
+   "public, max-age=96400, s-max-age=96400, stale-if-error=31535000, stale-while-revalidate=31535000"
+);
+  return re;
 }
