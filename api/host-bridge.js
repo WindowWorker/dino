@@ -26,13 +26,13 @@ function swapHost(){
     ||window?.location?.href.includes?.('/manual')){
 
     if(!window.location.href.startsWith('https://docs-')){
-      window.location.href=window.location.href.replaceAll(window.location.host,'docs-'+window.location.host);
+      window.location.href=window.location.href.replaceAll(window.location.host,'docs-'+window.location.host).split('?')[0];
     }
     
    }else{
 
     if(window.location.href.startsWith('https://docs-')){
-      window.location.href=window.location.href.replaceAll('docs-','');
+      window.location.href=window.location.href.replaceAll('docs-','').split('?')[0];
     }
     
    }
