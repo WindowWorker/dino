@@ -12,7 +12,7 @@ if(window?.location?.href.includes?.('/std')
 function Dinoify(){
 
 setInterval(function(){
-let dinos = document.querySelectorAll('img[src*="deno-looking-up.svg"],img[src*="logo"][src*=".svg"],img[src*="deno-"],img[src*="saaskit-art-circle.png"],img[src*="cover.png"]');
+let dinos = document.querySelectorAll('img[src*="deno-looking-up.svg"],img[src*="logo"][src*=".svg"],img[src*="deno-"],img[src*="saaskit-art-circle.png"],img[src*="cover.png"],img[src*="deno.typescripts.org/logo.png"]');
 let dinos_length = dinos.length;
 
   for(let i=0;i<dinos_length;i++){try{
