@@ -23,8 +23,7 @@ function swapHost(){
   if(window?.location?.href.includes?.('/std')
     ||window?.location?.href.includes?.('/api')
     ||window?.location?.href.includes?.('@')
-    ||window?.location?.href.includes?.('/manual')
-    ||window?.location?.href.includes?.('hostname=docs.deno.com')){
+    ||window?.location?.href.includes?.('/manual')){
 
     if(!window.location.href.startsWith('https://docs-')){
       window.location.href=window.location.href.replaceAll(window.location.host,'docs-'+window.location.host);
