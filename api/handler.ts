@@ -2,6 +2,7 @@ import './link-resolver.js';
 import './text-rewriter.js';
 import './dino.css.js';
 import './dino.js';
+import './host-bridge.js';
 let hostTarget = "deno.land";
 let docsTarget = "docs.deno.com";
 
@@ -16,7 +17,8 @@ const skipResponseHeaders = [
 let injects = globalThis['link-resolver-import']+
   globalThis['text-rewriter']+
   globalThis.dinoCSS+ 
-  globalThis.dino;
+  globalThis.dino+
+  globalThis['host-bridge'];
 
 export default async function (req: Request) {
 
