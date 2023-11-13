@@ -16,7 +16,7 @@ if((window?.location?.pathname=='/')&&(!window.location.href.includes('fresh')))
 function LinkResolver(){
   
 if(!globalThis.hostTargetList){
-  globalThis.hostTargetList = ['deno.land','deno.com','www.deno.com','docs.deno.com','www.deno.land','fresh.deno.dev','examples.deno.land'];
+  globalThis.hostTargetList = ['deno.land','deno.com','www.deno.com','docs.deno.com','www.deno.land','fresh.deno.dev','examples.deno.land','doc.deno.land'];
 
 }
 
