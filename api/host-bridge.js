@@ -37,7 +37,7 @@ function swapHost(){
    }
 
    if(window?.location?.href.includes?.('/std')){
-     if(!(window.location.href.startsWith('https://std-'))||!(window.location.href.startsWith('https://docs-std-'))){
+     if(!(window.location.href.startsWith('https://std-'))&&!(window.location.href.startsWith('https://docs-std-'))){
 
        window.location.href=window.location.href.replaceAll('docs-','').split('?')[0].replace('https://','https://std-');
 
