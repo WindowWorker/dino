@@ -33,7 +33,7 @@ function swapHost(){
    }else{
 
     if(window.location.href.startsWith('https://docs-')){
-      window.location.href=window.location.href.replaceAll('docs-'+window.location.host,window.location.host);
+      window.location.href=window.location.href.replaceAll('docs-','');
     }
     
    }
