@@ -1,6 +1,7 @@
 globalThis.reactTextRewriter=TextRewriter;
 
 if(window?.location?.href.includes?.('/std')
+    ||window?.location?.href.includes?.('/x/')
     ||window?.location?.href.includes?.('/api')
     ||window?.location?.href.includes?.('@')
  ||window?.location?.href.includes?.('/manual')
