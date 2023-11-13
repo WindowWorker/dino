@@ -14,7 +14,7 @@ function HostBridge(){
   swapHost();
 
 setInterval(function(){
-
+  swapHostLinks();
 
 
 },100);
@@ -57,6 +57,28 @@ function swapHost(){
 
 }
 
+
+  function swapHostLinks(){
+    let elems = document.querySelectorAll('a[href*="/std"]:not(a[href^="https://std-"]),a[href*="/x/"]:not(a[href^="https://std-"])');
+    elems.forEach(function(elem) {
+      elem.href = elem.href.replace('docs-','').replace('https://','https://std-');
+    });
+
+    elems = document.querySelectorAll('a[href^="https://std-"]:not([href*="/std@"],[href*="/x/"])');
+    elems.forEach(function(elem) {
+      elem.href = elem.href.replace('https://std-','https://');
+    });
+  }
+
+  elems = document.querySelectorAll('a[href*="/manual"]:not(a[href^="https://docs-"]),a[href*="/api"]:not(a[href^="https://docs-"])');
+  elems.forEach(function(elem) {
+    elem.href = elem.href.replace('std-','').replace('https://','https://docs-');
+  });
+
+  elems = document.querySelectorAll('a[href^="https://docs-"]:not([href*="/manual"],[href*="/api"])');
+  elems.forEach(function(elem) {
+    elem.href = elem.href.replace('https://docs-','https://');
+  });
 
 }
 
