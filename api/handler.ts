@@ -48,7 +48,7 @@ export default async function (req: Request) {
       );
     }
   }
-  request = addCacheHeaders(request);
+  //request = addCacheHeaders(request);
   let res = await fetch(request);
 
   let body = "";
@@ -120,7 +120,7 @@ export default async function (req: Request) {
     response.headers.set('Content-Type','image/jpeg');
   }
   //console.log(response.headers.get('content-type'));
-  response = addCacheHeaders(response);
+  //response = addCacheHeaders(response);
   return response;
 }
 
