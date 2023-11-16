@@ -27,15 +27,15 @@ if(!globalThis.hostTargetList){
 
 
 document.addEventListener("readystatechange", (event) => {
-  linkSheets();
+  linkSheetsAsync();
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  linkSheets();
+  linkSheetsAsync();
 });
 
 document.addEventListener("load", (event) => {
-  linkSheets();
+  linkSheetsAsync();
 });
 
 
