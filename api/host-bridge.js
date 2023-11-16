@@ -11,10 +11,10 @@ if(window?.location?.href.includes?.('/std')
 
 function HostBridge(){
 
-  swapHost();
+ // swapHost();
 
 setInterval(function(){
-  swapHostLinks();
+ // swapHostLinks();
 
 
 },100);
