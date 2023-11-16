@@ -26,7 +26,7 @@ function swapHost(){
     ||window?.location?.href?.includes?.('/manual')){
 
     if((!(window.location.href.startsWith('https://docs-')))&&(!(window.location.href.startsWith('https://std-')))){
-      window.location.href=window.location.href.replaceAll(window.location.host,'docs-'+window.location.host).split('?')[0];
+      window.location.href=window.location.href.replaceAll(window.location.host,'docs-'+window.location.host).split('?')[0].replace('docs-docs-','docs-');
     }
 
    }else{
@@ -40,7 +40,7 @@ function swapHost(){
    if(window?.location?.pathname?.includes?.('/std')||window?.location?.pathname?.includes?.('/x/')){
      if((!(window.location.href.startsWith('https://std-')))&&(!(window.location.href.startsWith('https://docs-std-')))){
 
-       window.location.href=window.location.href.replaceAll('docs-','').split('?')[0].replace('https://','https://std-');
+       window.location.href=window.location.href.replaceAll('docs-','').split('?')[0].replace('https://','https://std-').replace('std-std-','std-');
 
 
      }
@@ -61,7 +61,7 @@ function swapHost(){
   function swapHostLinks(){
     let elems = document.querySelectorAll('a[href*="/std"]:not(a[href^="https://std-"]),a[href*="/x/"]:not(a[href^="https://std-"])');
     elems.forEach(function(elem) {
-      elem.href = elem.href.replace('docs-','').replace('https://','https://std-');
+      elem.href = elem.href.replace('docs-','').replace('https://','https://std-').replace('std-std-','std-');
     });
 
     elems = document.querySelectorAll('a[href^="https://std-"]:not([href*="/std@"],[href*="/x/"])');
