@@ -34,6 +34,7 @@ filter: sepia(1) hue-rotate(90deg);
 }
 
 HIDDEN-STUFF,
+a[href*="fresh.deno.dev"],
 .iconExternalLink_nPIU,
 svg[aria-label*="Deno"],
 [href*="/pricing"]{
