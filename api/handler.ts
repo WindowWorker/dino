@@ -21,7 +21,7 @@ let injects = globalThis['link-resolver-import']+
   globalThis['host-bridge'];
 
 export default async function (req: Request) {
-
+  try{
   if ((req.method == "OPTIONS")||(req.url=='*')) {
     return new Response("",{headers:{Allow: "OPTIONS, GET, HEAD, POST"}});
   }
@@ -122,6 +122,10 @@ export default async function (req: Request) {
   //console.log(response.headers.get('content-type'));
   //response = addCacheHeaders(response);
   return response;
+  }catch(e){
+    console.log(e);
+    return new Response('Error: '+e,{status:500});
+  }
 }
 
 
