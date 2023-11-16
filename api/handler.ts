@@ -48,7 +48,7 @@ export default async function (req: Request) {
       );
     }
   }
-  resquest = addCacheHeaders(resquest);
+  request = addCacheHeaders(request);
   let res = await fetch(request);
 
   let body = "";
