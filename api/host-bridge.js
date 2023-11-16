@@ -71,26 +71,44 @@ function swapHost(){
 
   function swapHostLinks(){
     let elems = document.querySelectorAll('a[href*="/std"]:not(a[href^="https://std-"]),a[href*="/x/"]:not(a[href^="https://std-"])');
-    elems.forEach(function(elem) {
-      elem.href = elem.href.replace('docs-','').replace('https://','https://std-').replace('std-std-std-','std-std-');
-    });
+    let elems_length=elems.length;
+    for(let i=0;i<elems_length;i++){try{
+
+      elems[i].href = elems[i].href.replace('docs-','').replace('https://','https://std-').replace('std-std-std-','std-std-');
+      
+    }catch(e){continue;}}
+    
+
 
     elems = document.querySelectorAll('a[href^="https://std-"]:not([href*="/std@"],[href*="/x/"])');
-    elems.forEach(function(elem) {
-      elem.href = elem.href.replace('https://std-','https://');
-    });
-  }
+    elems_length=elems.length;
+    for(let i=0;i<elems_length;i++){try{
+
+      elems[i].href = elems[i].href.replace('https://std-','https://');
+
+    }catch(e){continue;}}
+
+
+  
 
   elems = document.querySelectorAll('a[href*="/manual"]:not(a[href^="https://docs-"]),a[href*="/api"]:not(a[href^="https://docs-"])');
-  elems.forEach(function(elem) {
-    elem.href = elem.href.replace('std-','').replace('https://','https://docs-');
-  });
+  elems_length=elems.length;
+  for(let i=0;i<elems_length;i++){try{
+
+    elems[i].href = elems[i].href.replace('std-','').replace('https://','https://docs-');
+
+  }catch(e){continue;}}
+
 
   elems = document.querySelectorAll('a[href^="https://docs-"]:not([href*="/manual"],[href*="/api"])');
-  elems.forEach(function(elem) {
-    elem.href = elem.href.replace('https://docs-','https://');
-  });
+  elems_length=elems.length;
+  for(let i=0;i<elems_length;i++){try{
 
+    elems[i].href = elems[i].href.replace('https://docs-','https://');
+
+  }catch(e){continue;}}
+
+  }
 }
 
 
