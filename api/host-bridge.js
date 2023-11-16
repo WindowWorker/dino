@@ -26,29 +26,40 @@ function swapHost(){
     ||window?.location?.href?.includes?.('/manual')){
 
     if((!(window.location.href.startsWith('https://docs-')))&&(!(window.location.href.startsWith('https://std-')))){
-      window.location.href=window.location.href.replaceAll(window.location.host,'docs-'+window.location.host).split('?')[0].replace('docs-docs-','docs-');
+      let nextWindow=window.location.href.replaceAll(window.location.host,'docs-'+window.location.host).split('?')[0].replace('docs-docs-','docs-');
+      if(window.location.href!=nextWindow){
+      window.location.href=nextWindow;
+        }
     }
 
    }else{
 
     if(window.location.href.startsWith('https://docs-')){
-      window.location.href=window.location.href.replaceAll('docs-','').split('?')[0];
+      let nextWindow=window.location.href.replaceAll('docs-','').split('?')[0];
+      if(window.location.href!=nextWindow){
+      window.location.href=nextWindow;
+        }
     }
 
    }
 
    if(window?.location?.pathname?.includes?.('/std')||window?.location?.pathname?.includes?.('/x/')){
      if((!(window.location.href.startsWith('https://std-')))&&(!(window.location.href.startsWith('https://docs-std-')))){
-
-       window.location.href=window.location.href.replaceAll('docs-','').split('?')[0].replace('https://','https://std-').replace('std-std-std-','std-std-');
+        let nextWindow=window.location.href.replaceAll('docs-','').split('?')[0].replace('https://','https://std-').replace('std-std-std-','std-std-');
+       if(window.location.href!=nextWindow){
+       window.location.href=nextWindow;
+         }
 
 
      }
    }else{
 
       if((window.location.href.startsWith('https://std-'))||(window.location.href.startsWith('https://docs-std-'))){
+       let nextWindow = window.location.href.replaceAll('std-','').split('?')[0];
+         if(window.location.href!=nextWindow){
+         window.location.href=nextWindow;
+           }
 
-        window.location.href=window.location.href.replaceAll('std-','').split('?')[0];
 
 
       }
