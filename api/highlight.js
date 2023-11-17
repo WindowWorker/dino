@@ -143,5 +143,5 @@ document.body.appendChild(m);
 
 }
 
-globalThis.highlight=`<script>void `+Highlight+`();</script>`;
+globalThis.highlight=`<scr`+`ipt>void `+Highlight+`();</scr`+`ipt>`;
 
