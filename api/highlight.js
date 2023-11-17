@@ -8,13 +8,13 @@ if(window?.location){
 
 
 
-async function Highlight(){
+function Highlight(){
 
 globalThis.sleep=function(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-await sleep(1000);
+
 
 void async function getPrism(){
 
@@ -24,7 +24,7 @@ void async function getPrism(){
 
 getp();
 setTimeout(function(){getp();},1);
-
+  setTimeout(function(){getp();},1000);
 }();
 
 
