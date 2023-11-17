@@ -70,7 +70,7 @@ function swapHost(){
 
 
   function swapHostLinks(){
-    let elems = document.querySelectorAll('a[href*="/std"]:not(a[href^="https://std-"]),a[href*="/x/"]:not(a[href^="https://std-"])');
+    let elems = document.querySelectorAll('a[href*="/std"][href*="typescripts.org"]:not(a[href^="https://std-"]),a[href*="/x/"][href*="typescripts.org"]:not(a[href^="https://std-"])');
     let elems_length=elems.length;
     for(let i=0;i<elems_length;i++){try{
 
@@ -80,7 +80,7 @@ function swapHost(){
     
 
 
-    elems = document.querySelectorAll('a[href^="https://std-"]:not([href*="/std@"],[href*="/x/"])');
+    elems = document.querySelectorAll('a[href^="https://std-"][href*="typescripts.org"]:not([href*="/std@"],[href*="/x/"])');
     elems_length=elems.length;
     for(let i=0;i<elems_length;i++){try{
 
