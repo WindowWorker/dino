@@ -3,6 +3,7 @@ import './text-rewriter.js';
 import './dino.css.js';
 import './dino.js';
 import './host-bridge.js';
+import './highlight.js';
 let hostTarget = "deno.land";
 let docsTarget = "docs.deno.com";
 
