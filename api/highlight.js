@@ -44,6 +44,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('elisp','typescript')
       .replace('toml','typescript')
       .replace('banana','yaml')
+      .replace('terminal','shell')
       ;//.replace('shell','docker');
   }  
     codes[i].innerHTML='<code class="'+mylang+'">'+codes[i].innerHTML.toString().replaceAll('<br>',`
