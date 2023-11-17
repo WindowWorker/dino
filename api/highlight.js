@@ -39,7 +39,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
     let mylang='language-'+thisLang;
     let preclass=codes[i].getAttribute('class');
   if(preclass&&preclass.includes(' language-')){
-    mylang='language-'+preclass.split(' language-')[1].split(' ')[0]
+    mylang=('language-'+preclass.split(' language-')[1].split(' ')[0])
       .replace('jsonc','json')
       .replace('json','banana')
       .replace('js','typescript')
