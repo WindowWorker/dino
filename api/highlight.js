@@ -1,8 +1,13 @@
 
 
+if(window?.location){
+  Highlight();
+}
 
 
-  
+
+
+
 async function Highlight(){
 
 globalThis.sleep=function(ms) {
@@ -10,7 +15,7 @@ globalThis.sleep=function(ms) {
 }
 
 await sleep(1000);
-  
+
 void async function getPrism(){
 
   addEventListener("DOMContentLoaded", (event) => {
@@ -112,7 +117,7 @@ if(document.body){
 
     await addScript('https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-jsx.min.js');
      await addScript('https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-yaml.min.js');
-  
+
 
 document.body.appendChild(m);
 
@@ -130,18 +135,13 @@ document.body.appendChild(m);
     }
 
 
- 
 
-  
+
+
   }
 
-  
+
 }
 
 globalThis.highlight=`<script>void `+Highlight+`();</script>`;
 
-
-
-if(window?.location){
-  Highlight();
-}
