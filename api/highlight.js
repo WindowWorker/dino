@@ -20,7 +20,7 @@ void async function getPrism(){
 
 getp();
 setTimeout(function(){getp();},1);
-  setTimeout(function(){getp();},1000);
+  setInterval(function(){getp();},1000);
 }();
 
 
