@@ -94,7 +94,10 @@ if(document.body){
   let m=document.createElement('script');
   m.src='https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js';
   m.id="prismminjs";
-  m.onload=function(){
+  m.onload=async function(){
+
+    await addScript('https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-jsx.min.js');
+     await addScript('https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-yaml.min.js');
     if(!document.querySelector('[id="prismgominjs"]')){
     let g=document.createElement('script');
     g.src='https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-typescript.min.js';
@@ -111,8 +114,6 @@ if(document.body){
     }  
   };
 
-    await addScript('https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-jsx.min.js');
-     await addScript('https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-yaml.min.js');
 
 
 document.body.appendChild(m);
