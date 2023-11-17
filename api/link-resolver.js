@@ -165,7 +165,7 @@ await new Promise((resolve, reject) => {setTimeout(resolve,100);})
   backup.onload = function(e){globalThis.backupElements[backupId].resolve();}
   backup.style.visibility="hidden";
   document.head.insertBefore(backup,document.head.firstElementChild);
-const promise1 = new Promise((resolve, reject) => {setTimeout(resolve,1000);});
+const promise1 = new Promise((resolve, reject) => {setTimeout(resolve,100);});
 
   await Promise.race([backup.promise,promise1]) ;
   return;
