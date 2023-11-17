@@ -6,6 +6,15 @@ filter:hue-rotate(135deg) saturate(3);
 
 }
 
+
+.pagination-nav__link--next .pagination-nav__label:after {
+    content: " »" !important;
+}
+
+.pagination-nav__link--prev .pagination-nav__label:before {
+    content: "« " !important;
+}
+
 kuhghtml[location*="/std"]{
 
 filter:hue-rotate(45deg);
