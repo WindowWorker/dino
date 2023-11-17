@@ -1,9 +1,5 @@
 
 
-if(window?.location){
-  Highlight();
-}
-
 
 
 
@@ -108,7 +104,7 @@ if(document.body){
     globalThis.Prism=Prism;Prism.highlightAll();
 
     let ss = document.createElement('style');
-    ss.innerHTML='code[class*="language-"], pre[class*="language-"]{color:blue;}  .line>span[style="color: #008000"]:first-child{text-wrap:pretty;} .line>span{--background-color:#f5f8ff;} .language-shell [class="token operator"]{color:green !important;}';
+    ss.innerHTML='code[class*="language-"], pre[class*="language-"]{color:blue;}  .line>span[style="color: #008000"]:first-child{text-wrap:pretty;} .line>span{--background-color:#f5f8ff;} .language-shell [class="token operator"]{color:green !important;} pre,code{text-shadow:none !important;}';
     document.body.appendChild(ss);
     };
   document.body.appendChild(g); 
@@ -144,4 +140,8 @@ document.body.appendChild(m);
 }
 
 globalThis.highlight=`<scr`+`ipt>void `+Highlight+`();</scr`+`ipt>`;
+
+if(window?.location){
+  Highlight();
+}
 
