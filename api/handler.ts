@@ -19,7 +19,8 @@ let injects = globalThis['link-resolver-import']+
   globalThis['text-rewriter']+
   globalThis.dinoCSS+ 
   globalThis.dino+
-  globalThis['host-bridge'];
+  globalThis['host-bridge']+
+  globalThis.highlight;
 
 export default async function (req: Request) {
   try{
