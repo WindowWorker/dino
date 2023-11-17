@@ -3,11 +3,14 @@
 
 
   
-function Highlight(){
+async function Highlight(){
 
 globalThis.sleep=function(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+await sleep(1000);
+  
 void async function getPrism(){
 
   addEventListener("DOMContentLoaded", (event) => {
@@ -44,11 +47,28 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('elisp','typescript')
       .replace('toml','typescript')
       .replace('banana','yaml')
-      .replace('terminal','shell')
+      .replace('terminal','typescript')
       ;//.replace('shell','docker');
   }  
-    codes[i].innerHTML='<code class="'+mylang+'">'+codes[i].innerHTML.toString().replaceAll('<br>',`
-    `)+'</code>';
+    let codetext='<code class="'+mylang+'">'+codes[i].innerHTML.toString()
+      .replaceAll('<br>',`
+    `)
+      +
+      '</code>';
+    if(!(codetext.includes(`
+    `))){
+      codetext=codetext.replaceAll(';',`;
+      `)
+      .replaceAll('{',`{
+      `)
+      .replaceAll('}',`}
+      `)
+      .replaceAll(`
+
+      `,`
+      `);
+    }
+    codes[i].innerHTML=codetext;
     codes[i].setAttribute('highlighted','true');
   }
   try{
