@@ -58,7 +58,6 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('-lua','-typescript')
       .replace('-rust','-clike')
       .replace('-cpp','-clike')
-      .replace('-c','-clike')
       ;//.replace('shell','docker');
   }  
     let codetext='<code class="'+mylang+'">'+codes[i].innerHTML.toString()
