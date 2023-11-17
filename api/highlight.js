@@ -50,6 +50,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('banana','yaml')
       .replace('terminal','typescript')
       .replace('-text','-typescript')
+      .replace('-lua','-typescript')
       ;//.replace('shell','docker');
   }  
     let codetext='<code class="'+mylang+'">'+codes[i].innerHTML.toString()
