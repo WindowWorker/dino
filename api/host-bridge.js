@@ -91,7 +91,7 @@ function swapHost(){
 
   
 
-  elems = document.querySelectorAll('a[href*="/manual"]:not(a[href^="https://docs-"]),a[href*="/api"]:not(a[href^="https://docs-"])');
+  elems = document.querySelectorAll('a[href*="/manual"][href*="typescripts.org"]:not(a[href^="https://docs-"]),a[href*="/api"][href*="typescripts.org"]:not(a[href^="https://docs-"])');
   elems_length=elems.length;
   for(let i=0;i<elems_length;i++){try{
 
@@ -100,7 +100,7 @@ function swapHost(){
   }catch(e){continue;}}
 
 
-  elems = document.querySelectorAll('a[href^="https://docs-"]:not([href*="/manual"],[href*="/api"])');
+  elems = document.querySelectorAll('a[href^="https://docs-"][href*="typescripts.org"]:not([href*="/manual"],[href*="/api"])');
   elems_length=elems.length;
   for(let i=0;i<elems_length;i++){try{
 
