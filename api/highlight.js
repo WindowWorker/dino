@@ -6,6 +6,17 @@
 
 function Highlight(){
 
+  globalThis.R=`
+  `;
+
+  let startH=document.querySelectorAll('[highlighted]');
+  let startH_length=startH.length;
+  for(let i=0;i<startH_length;i++){
+
+    startH[i].removeAttribute('highlighted');
+
+  }
+
 globalThis.sleep=function(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -56,7 +67,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   }
 
   let thisLang = 'typescript';
-  let codes=document.querySelectorAll('code>pre:not([highlighted]),pre:not([highlighted]):has(code.html-code),pre:not([highlighted]):has(code):not(:has(.language-id,span[style*="color: #"]))');
+  let codes=document.querySelectorAll('code>pre:not([highlighted]),pre:not([highlighted]):has(code.html-code),pre:not([highlighted]):has(code)');
   let codes_length=codes.length;
   for(let i=0;i<codes_length;i++){
     let mylang='language-'+thisLang;
@@ -84,23 +95,13 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       ;//.replace('shell','docker');
   }  
     let codetext='<code class="'+mylang+'"><highlight-me></highlight-me>'+codes[i].innerHTML.toString()
-      .replaceAll('<br>',`
-    `)
-      +
+      .replaceAll('<br>',R)+
       '</code>';
-    if(!(codetext.includes(`
-    `))){
-      codetext=codetext.replaceAll(';',`;
-      `)
-      .replaceAll('{',`{
-      `)
-      .replaceAll('}',`
-}
-      `)
-      .replaceAll(`
-
-      `,`
-      `);
+    if(!(codetext.includes(R))){
+      codetext=codetext.replaceAll(';',`;`+R)
+      .replaceAll('{',`{`+R)
+      .replaceAll('}',R+`}`+R)
+      .replaceAll(R+R,R);
     }
     codes[i].innerHTML=codetext;
     codes[i].setAttribute('highlighted','true');
