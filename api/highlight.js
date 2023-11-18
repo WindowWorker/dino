@@ -41,7 +41,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   [class="font-mono"]:not([highlighted])`);
   let faces_length=faces.length;
   for(let i=0;i<faces_length;i++){
-    faces[i].innerHTML='<pre style="border-radius:1vmax;"><code>'+faces[i].innerHTML+'</code></pre>';
+    faces[i].innerHTML='<pre style="border-radius:1vmax;"><code>'+faces[i].innerHTML.replaceAll('&lt;','≺')+'</code></pre>';
     faces[i].setAttribute('highlighted','true');
   }
 
