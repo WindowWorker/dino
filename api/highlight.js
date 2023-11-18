@@ -1,15 +1,5 @@
 
 
-function unlight(){
-
-  let startH=document.querySelectorAll('[highlighted]');
-  let startH_length=startH.length;
-  for(let i=0;i<startH_length;i++){
-
-    startH[i].removeAttribute('highlighted');
-
-  }
-}
 
 
 
@@ -17,6 +7,35 @@ function Highlight(){
 
   globalThis.R=`
   `;
+  
+
+  function unlight(){
+
+    let startH=document.querySelectorAll('[highlighted]');
+    let startH_length=startH.length;
+    for(let i=0;i<startH_length;i++){
+
+      startH[i].removeAttribute('highlighted');
+
+    }
+  }
+
+  function unlightEmpty(){
+
+    let startH=document.querySelectorAll('[highlighted]');
+    let startH_length=startH.length;
+    for(let i=0;i<startH_length;i++){
+
+      if((startH[i].children.length<2)
+      &&(startH[i].innerText.includes(R))){
+        startH[i].removeAttribute('highlighted');
+      }
+
+    }
+  }
+
+
+  
 
   unlight();
   setTimeout(function(){unlight();},1000);
