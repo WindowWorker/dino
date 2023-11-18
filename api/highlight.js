@@ -38,10 +38,12 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   __div[id^="variable_"]>div[class^="tw-"]:not([highlighted]),
   __div[id^="function_"]>div[class^="tw-"]:not([highlighted]),
   __div[id^="ctor_"]>div[class^="tw-"]:not([highlighted]),
+  li>code:not([highlighted]),
   [class="font-mono"]:not([highlighted])`);
   let faces_length=faces.length;
   for(let i=0;i<faces_length;i++){
-    faces[i].innerHTML='<pre style="border-radius:1vmax;"><code>'+faces[i].innerHTML.replaceAll('&lt;','≺')+'</code></pre>';
+    faces[i].outerHTML=('<pre style="border-radius:1vmax;"><code>'+faces[i].outerHTML.replaceAll('&lt;','≺')+'</code></pre>')
+      .replace('<code><pre','<pre').replace('</pre></code>','</pre>');
     faces[i].setAttribute('highlighted','true');
   }
 
