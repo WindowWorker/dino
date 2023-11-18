@@ -1,13 +1,6 @@
 
 
-
-
-
-
-function Highlight(){
-
-  globalThis.R=`
-  `;
+function unlight(){
 
   let startH=document.querySelectorAll('[highlighted]');
   let startH_length=startH.length;
@@ -16,6 +9,19 @@ function Highlight(){
     startH[i].removeAttribute('highlighted');
 
   }
+}
+
+
+
+function Highlight(){
+
+  globalThis.R=`
+  `;
+
+  unlight();
+  setTimeout(function(){unlight();},1000);
+  setTimeout(function(){unlight();},2000);
+  setTimeout(function(){unlight();},3000);
 
 globalThis.sleep=function(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
