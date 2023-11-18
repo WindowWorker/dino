@@ -10,7 +10,15 @@ globalThis.sleep=function(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
+function highlighter(){
+  if(document.querySelector('highlight-me')){
+    try{
+    if(Prism){
+      Prism?.highlightAll?.();
+      }
+      }catch(e){}
+  }
+}
 
 void async function getPrism(){
 
@@ -99,7 +107,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   }
   try{
   if(Prism){
-    Prism?.highlightAll?.();
+    highlighter();
     }
     }catch(e){}
   if(!document.querySelector('[id="prismmincss"]')){
@@ -129,7 +137,7 @@ if(document.body){
     g.id="prismgominjs";
     g.onload=function(){
 
-    globalThis.Prism=Prism;Prism.highlightAll();
+    globalThis.Prism=Prism;highlighter();
 
     let ss = document.createElement('style');
     ss.innerHTML='code[class*="language-"], pre[class*="language-"]{color:blue;}  .line>span[style="color: #008000"]:first-child{text-wrap:pretty;} .line>span{--background-color:#f5f8ff;} .language-shell [class="token operator"]{color:green !important;} pre,code{text-shadow:none !important;} pre[clsee*="language-typescript"]{color:blue;} code[clsee*="language-typescript"]{color:blue;}';
