@@ -34,7 +34,7 @@ function Highlight(){
     }
   }
 
-
+setInterval(function(){unlightEmpty();},100);
   
 
   unlight();
