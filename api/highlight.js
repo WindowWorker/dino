@@ -99,6 +99,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('-lua','-typescript')
       .replace('-rust','-clike')
       .replace('-cpp','-clike')
+      .replaceAll(',','')
       ;//.replace('shell','docker');
   }  
     let codetext='<code class="'+mylang+'"><highlight-me></highlight-me>'+codes[i].innerHTML.toString()
@@ -111,6 +112,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replaceAll(R+R,R);
     }
     codes[i].innerHTML=codetext;
+    codes[i].setAttribute('class',mylang);
     codes[i].setAttribute('highlighted','true');
   }
   try{
