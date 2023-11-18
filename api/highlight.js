@@ -33,15 +33,15 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
 /*if((!window.location.href.includes('/dev/typescript-vfs'))
 &&(!window.location.href.includes('/dev/sandbox'))){return;}*/
   let faces=document.querySelectorAll(`
-  div[id^="method_"]>div[class^="tw-"]:not([highlighted]),
-  div[id^="prop_"]>div[class^="tw-"]:not([highlighted]),
-  div[id^="variable_"]>div[class^="tw-"]:not([highlighted]),
-  div[id^="function_"]>div[class^="tw-"]:not([highlighted]),
-  div[id^="ctor_"]>div[class^="tw-"]:not([highlighted]),
-  div[class="font-mono"]:not([highlighted])`);
+  __div[id^="method_"]>div[class^="tw-"]:not([highlighted]),
+  __div[id^="prop_"]>div[class^="tw-"]:not([highlighted]),
+  __div[id^="variable_"]>div[class^="tw-"]:not([highlighted]),
+  __div[id^="function_"]>div[class^="tw-"]:not([highlighted]),
+  __div[id^="ctor_"]>div[class^="tw-"]:not([highlighted]),
+  [class="font-mono"]:not([highlighted])`);
   let faces_length=faces.length;
   for(let i=0;i<faces_length;i++){
-    faces[i].innerHTML='<pre><code>'+faces[i].innerHTML+'</code></pre>';
+    faces[i].innerHTML='<pre style="border-radius:1vmax;"><code>'+faces[i].innerHTML+'</code></pre>';
     faces[i].setAttribute('highlighted','true');
   }
 
