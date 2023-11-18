@@ -42,7 +42,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   [class="font-mono"]:not([highlighted])`);
   let faces_length=faces.length;
   for(let i=0;i<faces_length;i++){
-    faces[i].outerHTML=('<pre style="border-radius:1vmax;"><code>'+faces[i].outerHTML.replaceAll('&lt;','≺')+'</code></pre>')
+    faces[i].outerHTML=('<pre style="border-radius:1vmax;"><code><highlight-me></highlight-me>'+faces[i].outerHTML.replaceAll('&lt;','≺')+'</code></pre>')
       .replace('<code><pre','<pre').replace('</pre></code>','</pre>');
     faces[i].setAttribute('highlighted','true');
   }
@@ -75,7 +75,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('-cpp','-clike')
       ;//.replace('shell','docker');
   }  
-    let codetext='<code class="'+mylang+'">'+codes[i].innerHTML.toString()
+    let codetext='<code class="'+mylang+'"><highlight-me></highlight-me>'+codes[i].innerHTML.toString()
       .replaceAll('<br>',`
     `)
       +
