@@ -71,7 +71,8 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       `)
       .replaceAll('{',`{
       `)
-      .replaceAll('}',`}
+      .replaceAll('}',`
+}
       `)
       .replaceAll(`
 
@@ -131,6 +132,7 @@ document.body.appendChild(m);
 
   async function addScript(s){
     let jsx=document.createElement('script');
+    if(document.querySelector('script[id="'+s+'"]')){return;}
     jsx.id=s;
     let aspromise = new Promise(resolve=>{jsx.resolve=resolve})
       jsx.src=s;
