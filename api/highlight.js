@@ -95,6 +95,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('apple','-shell')
       .replace('terminal','typescript')
       .replace('-text','-typescript')
+      .replace('-none','-typescript')
       .replace('-lua','-typescript')
       .replace('-rust','-clike')
       .replace('-cpp','-clike')
