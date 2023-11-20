@@ -259,6 +259,16 @@ document.body.appendChild(m);
 
     }catch(e){continue;}}
 
+    doublecodes=document.querySelectorAll('pre:has(.token)');
+    doublecodes_length=doublecodes.length;
+    for(let i=0;i<doublecodes_length;i++){try{
+
+      if(doublecodes[i].innerHTML.includes('≺')){
+        doublecodes[i].innerHTML=doublecodes[i].innerHTML.toString().replaceAll('≺','<span class="token operator">&lt;</span>');
+      }
+
+    }catch(e){continue;}}
+
   },100);
 
 
