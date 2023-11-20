@@ -22,7 +22,7 @@ function Highlight(){
 
   function unlightEmpty(){
 
-    let startH=document.querySelectorAll('[highlighted]');
+    let startH=document.querySelectorAll('[highlighted]:not(:has(highlight-me))');
     let startH_length=startH.length;
     for(let i=0;i<startH_length;i++){
 
