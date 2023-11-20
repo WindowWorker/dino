@@ -27,8 +27,8 @@ function Highlight(){
     for(let i=0;i<startH_length;i++){
 
       if((startH[i].children.length>2)
-      &&(startH[i].innerText.includes(R))
-      &&(startsH[i].innerText.trim().length>50)){
+      &&((startH[i].innerText.includes(R))
+      ||(startsH[i].innerText.trim().length>50))){
         startH[i].removeAttribute('highlighted');
       }
 
@@ -123,7 +123,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       ;//.replace('shell','docker');
   }  
     let codetext='<code class="'+mylang+'"><highlight-me></highlight-me>'+codes[i].innerHTML.toString()
-      .replaceAll('<br>',R)+
+      .replaceAll('<br>',R).trim()+
       '</code>';
     if(!(codetext.includes(R))){
       codetext=codetext.replaceAll(';',`;`+R)
@@ -131,7 +131,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replaceAll('}',R+`}`+R)
       .replaceAll(R+R,R);
     }
-    codes[i].innerHTML=codetext;
+    codes[i].innerHTML=codetext.trim();
     codes[i].setAttribute('class',mylang);
     codes[i].setAttribute('highlighted','true');
   }
