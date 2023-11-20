@@ -7,7 +7,7 @@ function Highlight(){
 
   globalThis.R=`
   `;
-  
+
 
   function unlight(){
 
@@ -26,8 +26,9 @@ function Highlight(){
     let startH_length=startH.length;
     for(let i=0;i<startH_length;i++){
 
-      if((startH[i].children.length<2)
-      &&(startH[i].innerText.includes(R))){
+      if((startH[i].children.length>2)
+      &&(startH[i].innerText.includes(R))
+      &&(startsH[i].innerText.trim().length>50)){
         startH[i].removeAttribute('highlighted');
       }
 
@@ -35,7 +36,7 @@ function Highlight(){
   }
 
 setInterval(function(){unlightEmpty();},100);
-  
+
 
   unlight();
   setTimeout(function(){unlight();},1000);
