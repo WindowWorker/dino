@@ -103,6 +103,14 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
     if(codes[i].hasAttribute('highlight-count')){
       hlc=parseInt(codes[i].getAttribute('highlight-count'));
       if(hlc>=5){
+        codes[i].setAttribute('highlighted','true');
+        if(codes[i].firstElementChild){
+          codes[i].firstElementChild.appendChild(document.createElement('highlight-me'));
+
+        }else{
+          codes[i].appendChild(document.createElement('highlight-me'));
+        }
+        highlighter();
         continue;
       }else{
         hlc++;
@@ -222,7 +230,7 @@ document.body.appendChild(m);
   for(let i=0;i<doublecodes_length;i++){try{
 
     doublecodes[i].parentElement.innerHTML=doubleCodes[i].innerHTML;
-    
+
   }catch(e){continue;}}
 
     doublecodes=document.querySelectorAll('code>*>code');
@@ -232,7 +240,7 @@ document.body.appendChild(m);
       doublecodes[i].parentElement.parentElement.innerHTML=doubleCodes[i].innerHTML;
 
     }catch(e){continue;}}
-    
+
   },100);*/
 
 
