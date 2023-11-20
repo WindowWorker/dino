@@ -153,6 +153,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
     let hlc = 0;
     if(codes[i].hasAttribute('highlight-count')){
       hlc=parseInt(codes[i].getAttribute('highlight-count'));
+      if(hlc>30){continue;}
       if(hlc>=5){
         codes[i].setAttribute('highlighted','true');
         if(codes[i].firstElementChild){
@@ -165,6 +166,8 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
         highlighter();
         if(hlc>20){
           codes[i].setAttribute('highlight-done',true);
+          hlc++;
+          codes[i].setAttribute('highlight-count',hlc);
           continue;
         }
       }else{
