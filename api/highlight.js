@@ -10,6 +10,35 @@ function Highlight(){
     tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token','')+' poop');
   }catch(e){continue;}}
 
+  setInterval(function(){
+  let doublecodes=document.querySelectorAll('code>code');
+  let doublecodes_length=doublecodes.length;
+  for(let i=0;i<doublecodes_length;i++){try{
+
+    doublecodes[i].parentElement.innerHTML=doubleCodes[i].innerHTML;
+
+  }catch(e){continue;}}
+
+    doublecodes=document.querySelectorAll('code>*>code');
+    doublecodes_length=doublecodes.length;
+    for(let i=0;i<doublecodes_length;i++){try{
+
+      doublecodes[i].parentElement.parentElement.innerHTML=doubleCodes[i].innerHTML;
+
+    }catch(e){continue;}}
+
+    doublecodes=document.querySelectorAll('pre:has(.token)');
+    doublecodes_length=doublecodes.length;
+    for(let i=0;i<doublecodes_length;i++){try{
+
+      if(doublecodes[i].innerHTML.includes('≺')){
+        doublecodes[i].innerHTML=doublecodes[i].innerHTML.toString().replaceAll('≺','<span class="token operator">&lt;</span>');
+      }
+
+    }catch(e){continue;}}
+
+  },100);
+
   globalThis.R=`
   `.split(' ')[0];
 
@@ -126,7 +155,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
           codes[i].appendChild(document.createElement('highlight-me'));
         }
         highlighterSelect();
-        continue;
+        //continue;
       }else{
         hlc++;
         codes[i].setAttribute('highlight-count',hlc);
@@ -242,34 +271,7 @@ document.body.appendChild(m);
 
   }
 
-  setInterval(function(){
-  let doublecodes=document.querySelectorAll('code>code');
-  let doublecodes_length=doublecodes.length;
-  for(let i=0;i<doublecodes_length;i++){try{
-
-    doublecodes[i].parentElement.innerHTML=doubleCodes[i].innerHTML;
-
-  }catch(e){continue;}}
-
-    doublecodes=document.querySelectorAll('code>*>code');
-    doublecodes_length=doublecodes.length;
-    for(let i=0;i<doublecodes_length;i++){try{
-
-      doublecodes[i].parentElement.parentElement.innerHTML=doubleCodes[i].innerHTML;
-
-    }catch(e){continue;}}
-
-    doublecodes=document.querySelectorAll('pre:has(.token)');
-    doublecodes_length=doublecodes.length;
-    for(let i=0;i<doublecodes_length;i++){try{
-
-      if(doublecodes[i].innerHTML.includes('≺')){
-        doublecodes[i].innerHTML=doublecodes[i].innerHTML.toString().replaceAll('≺','<span class="token operator">&lt;</span>');
-      }
-
-    }catch(e){continue;}}
-
-  },100);
+ 
 
 
 }
