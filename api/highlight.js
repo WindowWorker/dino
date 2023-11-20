@@ -242,7 +242,7 @@ document.body.appendChild(m);
 
   }
 
- /* setInterval(function(){
+  setInterval(function(){
   let doublecodes=document.querySelectorAll('code>code');
   let doublecodes_length=doublecodes.length;
   for(let i=0;i<doublecodes_length;i++){try{
@@ -259,7 +259,7 @@ document.body.appendChild(m);
 
     }catch(e){continue;}}
 
-  },100);*/
+  },100);
 
 
 }
