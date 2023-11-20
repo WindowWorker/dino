@@ -154,7 +154,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
         }else{
           codes[i].appendChild(document.createElement('highlight-me'));
         }
-        highlighterSelect();
+        highlighter();
         //continue;
       }else{
         hlc++;
@@ -207,7 +207,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   }
   try{
   if(Prism){
-    highlighter();highlighterSelect();
+    highlighter();if(hlc<=5){highlighterSelect();}
     }
     }catch(e){}
   if(!document.querySelector('[id="prismmincss"]')){
@@ -271,7 +271,7 @@ document.body.appendChild(m);
 
   }
 
- 
+
 
 
 }
