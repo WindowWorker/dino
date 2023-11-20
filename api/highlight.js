@@ -96,13 +96,13 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   }
 
   let thisLang = 'typescript';
-  let codes=document.querySelectorAll('code>pre:not([highlighted]),pre:not([highlighted]):has(code.html-code),pre:not([highlighted]):has(code)');
+  let codes=document.querySelectorAll(':not(pre) code>pre:not([highlighted]),:not(pre,code) pre:not([highlighted]):has(code.html-code),:not(pre,code) pre:not([highlighted]):has(code)');
   let codes_length=codes.length;
   for(let i=0;i<codes_length;i++){
     let hlc = 0;
     if(codes[i].hasAttribute('highlight-count')){
       hlc=parseInt(codes[i].getAttribute('highlight-count'));
-      if(hlc>=20){
+      if(hlc>=5){
         continue;
       }else{
         hlc++;
