@@ -4,8 +4,13 @@
 
 
 function Highlight(){
+  if(document.querySelector('.block')){return;}
+  let tks=document.querySelectorAll('pre:has(.block)');
+  for(let i=0 ; i<tks.length ; i++){try{
+    tks[i].setAttribute('highlight-done','true');
+  }catch(e){continue;}}
 
-  let tks=document.querySelectorAll('[class*="token"]');
+  tks=document.querySelectorAll(':not(.block)>[class*="token"]');
   for(let i=0 ; i<tks.length ; i++){try{
     tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token','')+' poop');
   }catch(e){continue;}}
