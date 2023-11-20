@@ -122,7 +122,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replaceAll(',','')
       ;//.replace('shell','docker');
   }  
-    let codetext='<code class="'+mylang+'"><highlight-me></highlight-me>'+codes[i].innerHTML.toString()
+    let codetext='<code class="'+mylang+'" highlighted=true><highlight-me></highlight-me>'+codes[i].innerHTML.toString()
       .replaceAll('<br>',R).trim()+
       '</code>';
     if(!(codetext.includes(R))){
