@@ -5,7 +5,10 @@
 
 function Highlight(){
 
-
+  let tks=document.querySelectorAll('[class*="token"]');
+  for(let i=0 ; i<tks.length ; i++){try{
+    tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token',''));
+  }catch(e){continue;}}
 
   globalThis.R=`
   `.split(' ')[0];
@@ -172,7 +175,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   }
   try{
   if(Prism){
-    highlighter();
+    highlighter();highlighterSelect();
     }
     }catch(e){}
   if(!document.querySelector('[id="prismmincss"]')){
@@ -202,7 +205,7 @@ if(document.body){
     g.id="prismgominjs";
     g.onload=function(){
 
-    globalThis.Prism=Prism;highlighter();
+    globalThis.Prism=Prism;highlighter();highlighterSelect();
 
     let ss = document.createElement('style');
     ss.innerHTML='code[class*="language-"], pre[class*="language-"]{color:blue;}  .line>span[style="color: #008000"]:first-child{text-wrap:pretty;} .line>span{--background-color:#f5f8ff;} .language-shell [class="token operator"]{color:green !important;} pre,code{text-shadow:none !important;} pre[clsee*="language-typescript"]{color:blue;} code[clsee*="language-typescript"]{color:blue;}';
