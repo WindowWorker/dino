@@ -146,6 +146,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('banana','yaml')
       .replace('-shell','apple')
       .replace('-sh','-typescript')
+      .replace('-bash','-typescript')
       .replace('apple','-shell')
       .replace('terminal','typescript')
       .replace('-text','-typescript')
