@@ -134,7 +134,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   [class="font-mono"]:not([highlighted])`);
   let faces_length=faces.length;
   for(let i=0;i<faces_length;i++){
-    faces[i].outerHTML=('<pre style="border-radius:1vmax;" highlight-count=0><code highlighted=true><highlight-me></highlight-me>'+faces[i].outerHTML.replaceAll('&lt;','≺')+'</code></pre>')
+    faces[i].outerHTML=('<pre style="border-radius:1vmax;" class="'+faces[i].getAttribute('class')+'" highlight-count=0><code highlighted=true><highlight-me></highlight-me>'+faces[i].outerHTML.replaceAll('&lt;','≺')+'</code></pre>')
       .replace('<code><pre','<pre').replace('</pre></code>','</pre>');
     faces[i].setAttribute('highlighted','true');
   }
