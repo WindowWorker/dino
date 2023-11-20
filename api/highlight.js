@@ -28,7 +28,7 @@ function Highlight(){
     let startH_length=startH.length;
     for(let i=0;i<startH_length;i++){
 
-      if((startH[i].children.length<3)
+      if((startH[i].children.length<2)
       &&((startH[i].innerText.includes(R))
       ||(startH[i].innerText.trim().length>50))){
         startH[i].removeAttribute('highlighted');
@@ -38,7 +38,7 @@ function Highlight(){
     }
   }
 
-setInterval(function(){unlightEmpty();},100);
+setInterval(function(){unlightEmpty();},500);
 
 
   unlight();
@@ -102,7 +102,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
     let hlc = 0;
     if(codes[i].hasAttribute('highlight-count')){
       hlc=parseInt(codes[i].getAttribute('highlight-count'));
-      if(hlc>=100){
+      if(hlc>=20){
         continue;
       }else{
         hlc++;
