@@ -136,8 +136,8 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
     }
     let mylang='language-'+thisLang;
     let preclass=codes[i].getAttribute('class');
-  if(preclass&&preclass.includes(' language-')){
-    mylang=('language-'+preclass.split(' language-')[1].split(' ')[0])
+  if(preclass&&preclass.includes('language-')){
+    mylang=('language-'+preclass.split('language-')[1].split(' ')[0])
       .replace('jsonc','json')
       .replace('json','banana')
       .replace('jsx','typescript')
@@ -148,6 +148,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('elisp','typescript')
       .replace('toml','typescript')
       .replace('banana','yaml')
+      .replace('graphql','yaml')
       .replace('-shell','apple')
       .replace('-sh','-typescript')
       .replace('-bash','-typescript')
@@ -161,6 +162,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replaceAll(',','')
       ;//.replace('shell','docker');
   }  
+    codes[i].setAttribute('class',mylang);
     let codetext='<code class="'+mylang+'" highlighted=true><highlight-me></highlight-me>'+codes[i].innerHTML.toString()
       .replaceAll('<br>',R).trim()+
       '</code>';
@@ -171,7 +173,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replaceAll(R+R,R);
     }
     codes[i].innerHTML=codetext.trim();
-    codes[i].setAttribute('class',mylang);
+
     codes[i].setAttribute('highlighted','true');
   }
   try{
