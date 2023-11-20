@@ -7,7 +7,7 @@ function Highlight(){
 
   let tks=document.querySelectorAll('[class*="token"]');
   for(let i=0 ; i<tks.length ; i++){try{
-    tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token',''));
+    tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token','')+' poop');
   }catch(e){continue;}}
 
   globalThis.R=`
@@ -100,6 +100,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   __div[id^="variable_"]>div[class^="tw-"]:not([highlighted]),
   __div[id^="function_"]>div[class^="tw-"]:not([highlighted]),
   __div[id^="ctor_"]>div[class^="tw-"]:not([highlighted]),
+  pre:has(.poop),
   li>code:not([highlighted]),
   [class="font-mono"]:not([highlighted])`);
   let faces_length=faces.length;
