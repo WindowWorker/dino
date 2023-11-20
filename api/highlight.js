@@ -6,7 +6,7 @@
 function Highlight(){
 
   globalThis.R=`
-  `;
+  `.split(' ')[0];
 
 
   function unlight(){
