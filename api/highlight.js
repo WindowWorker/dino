@@ -150,12 +150,13 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
         codes[i].setAttribute('highlighted','true');
         if(codes[i].firstElementChild){
           codes[i].firstElementChild.appendChild(document.createElement('highlight-me'));
-
+          hlc++;
+          codes[i].setAttribute('highlight-count',hlc);
         }else{
           codes[i].appendChild(document.createElement('highlight-me'));
         }
         highlighter();
-        //continue;
+        if(hlc>20){continue;}
       }else{
         hlc++;
         codes[i].setAttribute('highlight-count',hlc);
