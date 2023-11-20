@@ -56,7 +56,7 @@ function Highlight(){
 
   function unlightEmpty(){
 
-    let startH=document.querySelectorAll('[highlighted]');
+    let startH=document.querySelectorAll('[highlighted]:not([highlight-done])');
     let startH_length=startH.length;
     for(let i=0;i<startH_length;i++){
 
@@ -156,7 +156,10 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
           codes[i].appendChild(document.createElement('highlight-me'));
         }
         highlighter();
-        if(hlc>20){continue;}
+        if(hlc>20){
+          codes[i].setAttribute('highlight-done',true);
+          continue;
+        }
       }else{
         hlc++;
         codes[i].setAttribute('highlight-count',hlc);
