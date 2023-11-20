@@ -87,7 +87,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   [class="font-mono"]:not([highlighted])`);
   let faces_length=faces.length;
   for(let i=0;i<faces_length;i++){
-    faces[i].outerHTML=('<pre style="border-radius:1vmax;"><cod highlighted=true><highlight-me></highlight-me>'+faces[i].outerHTML.replaceAll('&lt;','≺')+'</code></pre>')
+    faces[i].outerHTML=('<pre style="border-radius:1vmax;" highlight-count=0><cod highlighted=true><highlight-me></highlight-me>'+faces[i].outerHTML.replaceAll('&lt;','≺')+'</code></pre>')
       .replace('<code><pre','<pre').replace('</pre></code>','</pre>');
     faces[i].setAttribute('highlighted','true');
   }
@@ -96,6 +96,18 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   let codes=document.querySelectorAll('code>pre:not([highlighted]),pre:not([highlighted]):has(code.html-code),pre:not([highlighted]):has(code)');
   let codes_length=codes.length;
   for(let i=0;i<codes_length;i++){
+    let hlc = 0;
+    if(codes[i].hasAttribute('highlight-count')){
+      hlc=parseInt(codes[i].getAttribute('highlight-count'));
+      if(hlc>=10){
+        continue;
+      }else{
+        hlc++;
+        codes[i].setAttribute('highlight-count',hlc);
+      }
+    }else{
+      codes[i].setAttribute('highlight-count',hlc);
+    }
     let mylang='language-'+thisLang;
     let preclass=codes[i].getAttribute('class');
   if(preclass&&preclass.includes(' language-')){
