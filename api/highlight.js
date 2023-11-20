@@ -216,6 +216,25 @@ document.body.appendChild(m);
 
   }
 
+ /* setInterval(function(){
+  let doublecodes=document.querySelectorAll('code>code');
+  let doublecodes_length=doublecodes.length;
+  for(let i=0;i<doublecodes_length;i++){try{
+
+    doublecodes[i].parentElement.innerHTML=doubleCodes[i].innerHTML;
+    
+  }catch(e){continue;}}
+
+    doublecodes=document.querySelectorAll('code>*>code');
+    doublecodes_length=doublecodes.length;
+    for(let i=0;i<doublecodes_length;i++){try{
+
+      doublecodes[i].parentElement.parentElement.innerHTML=doubleCodes[i].innerHTML;
+
+    }catch(e){continue;}}
+    
+  },100);*/
+
 
 }
 
