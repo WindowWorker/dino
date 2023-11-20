@@ -10,6 +10,8 @@ pre[class*="language-"]{
 background-color:aliceblue;
 }
 
+code{padding:0 !important;}
+
 .pagination-nav__link--next .pagination-nav__label:after {
     content: " »" !important;
 }
