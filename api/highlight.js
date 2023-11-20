@@ -15,7 +15,7 @@ function Highlight(){
     tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token','')+' poop');
   }catch(e){continue;}}
 
-  setInterval(function(){
+  function stripCodes(){
   let doublecodes=document.querySelectorAll('code>code');
   let doublecodes_length=doublecodes.length;
   for(let i=0;i<doublecodes_length;i++){try{
@@ -42,7 +42,9 @@ function Highlight(){
 
     }catch(e){continue;}}
 
-  },100);
+  }
+  stripCodes();
+  setInterval(function(){stripCodes();},100);
 
   globalThis.R=`
   `.split(' ')[0];
