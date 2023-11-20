@@ -4,19 +4,26 @@
 
 
 function Highlight(){
+
+function arraySelectorAll(css){
+
+  return Array.from(document.querySelectorAll(css));
+  
+}
+  
   if(document.querySelector('.block')){return;}
-  let tks=document.querySelectorAll('pre:has(.block)');
+  let tks=arraySelectorAll('pre:has(.block)');
   for(let i=0 ; i<tks.length ; i++){try{
     tks[i].setAttribute('highlight-done','true');
   }catch(e){continue;}}
 
-  tks=document.querySelectorAll(':not(.block)>[class*="token"]');
+  tks=arraySelectorAll(':not(.block)>[class*="token"]');
   for(let i=0 ; i<tks.length ; i++){try{
     tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token','')+' poop');
   }catch(e){continue;}}
 
   function stripCodes(){
-  let doublecodes=document.querySelectorAll('code>code');
+  let doublecodes=arraySelectorAll('code>code');
   let doublecodes_length=doublecodes.length;
   for(let i=0;i<doublecodes_length;i++){try{
 
@@ -32,7 +39,7 @@ function Highlight(){
 
     }catch(e){continue;}}
 
-    doublecodes=document.querySelectorAll('pre:has(.token)');
+    doublecodes=arraySelectorAll('pre:has(.token)');
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
 
@@ -52,7 +59,7 @@ function Highlight(){
 
   function unlight(){
 
-    let startH=document.querySelectorAll('[highlighted]');
+    let startH=arraySelectorAll('[highlighted]');
     let startH_length=startH.length;
     for(let i=0;i<startH_length;i++){
 
@@ -63,7 +70,7 @@ function Highlight(){
 
   function unlightEmpty(){
 
-    let startH=document.querySelectorAll('[highlighted]:not([highlight-done])');
+    let startH=arraySelectorAll('[highlighted]:not([highlight-done])');
     let startH_length=startH.length;
     for(let i=0;i<startH_length;i++){
 
@@ -93,7 +100,7 @@ function highlighter(){
   if(document.querySelector('highlight-me')){
     try{
     if(Prism){
-      let hs=document.querySelectorAll('[highlight-count]:not(:has(.token))');
+      let hs=arraySelectorAll('[highlight-count]:not(:has(.token))');
       for(let i=0 ; i<hs.length ; i++){try{
         Prism?.highlightElement?.(hs[i]);
       }catch(e){continue;}}
@@ -104,7 +111,7 @@ function highlighter(){
 
   function highlighterSelect(){
 
-    let hs=document.querySelectorAll('[highlight-count]:not(:has(.token))');
+    let hs=arraySelectorAll('[highlight-count]:not(:has(.token))');
     for(let i=0 ; i<hs.length ; i++){try{
       Prism?.highlightElement?.(hs[i]);
     }catch(e){continue;}}
@@ -130,7 +137,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
 
 /*if((!window.location.href.includes('/dev/typescript-vfs'))
 &&(!window.location.href.includes('/dev/sandbox'))){return;}*/
-  let faces=document.querySelectorAll(`
+  let faces=arraySelectorAll(`
   __div[id^="method_"]>div[class^="tw-"]:not([highlighted]),
   __div[id^="prop_"]>div[class^="tw-"]:not([highlighted]),
   __div[id^="variable_"]>div[class^="tw-"]:not([highlighted]),
@@ -147,7 +154,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   }
 
   let thisLang = 'typescript';
-  let codes=document.querySelectorAll(':not(pre) code>pre:not([highlighted]),:not(pre,code) pre:not([highlighted]):has(code.html-code),:not(pre,code) pre:not([highlighted]):has(code)');
+  let codes=arraySelectorAll(':not(pre) code>pre:not([highlighted]),:not(pre,code) pre:not([highlighted]):has(code.html-code),:not(pre,code) pre:not([highlighted]):has(code)');
   let codes_length=codes.length;
   for(let i=0;i<codes_length;i++){
     let hlc = 0;
