@@ -4,7 +4,8 @@
 
 
 function Highlight(){
-
+  if(globalThis.HighlightRunning){return;}
+  globalThis.HighlightRunning=true;
 function arraySelectorAll(css){
 
   return Array.from(document.querySelectorAll(css));
@@ -27,15 +28,32 @@ function arraySelectorAll(css){
   let doublecodes_length=doublecodes.length;
   for(let i=0;i<doublecodes_length;i++){try{
 
-    doublecodes[i].parentElement.innerHTML=doubleCodes[i].innerHTML;
+    let htm = doubleCodes[i].innerHTML.toString();
+    doublecodes[i].parentElement.innerHTML=htm;
 
   }catch(e){continue;}}
+
+    doublecodes=arraySelectorAll('pre>pre');
+    doublecodes_length=doublecodes.length;
+    for(let i=0;i<doublecodes_length;i++){try{
+      let htm = doubleCodes[i].innerHTML.toString();
+      doublecodes[i].parentElement.innerHTML=htm;
+
+    }catch(e){continue;}}
 
     doublecodes=document.querySelectorAll('code>*>code');
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
+      let htm=doubleCodes[i].innerHTML.toString();
+      doublecodes[i].parentElement.parentElement.innerHTML=htm;
 
-      doublecodes[i].parentElement.parentElement.innerHTML=doubleCodes[i].innerHTML;
+    }catch(e){continue;}}
+
+    doublecodes=document.querySelectorAll('pre>*>pre');
+    doublecodes_length=doublecodes.length;
+    for(let i=0;i<doublecodes_length;i++){try{
+      let htm=doubleCodes[i].innerHTML.toString();
+      doublecodes[i].parentElement.parentElement.innerHTML=htm;
 
     }catch(e){continue;}}
 
@@ -149,7 +167,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   let faces_length=faces.length;
   for(let i=0;i<faces_length;i++){
     if(faces[i].outerHTML.toString().includes('highlight-me')){continue;}
-    faces[i].outerHTML=('<pre style="border-radius:1vmax;" class="'+faces[i].getAttribute('class')+'" highlight-count=0><code highlighted=true><highlight-me></highlight-me>'+faces[i].outerHTML.replaceAll('&lt;','≺')+'</code></pre>')
+    faces[i].outerHTML=('<pre style="border-radius:1vmax;" class="'+faces[i].getAttribute('class')+'" highlight-count=0><code highlighted=true><highlight-me></highlight-me>'+faces[i].outerHTML.toString().replaceAll('&lt;','≺')+'</code></pre>')
       .replace('<code highlighted=true><highlight-me></highlight-me><pre','<pre')
       .replace('<code><pre','<pre').replace('</pre></code>','</pre>');
     faces[i].setAttribute('highlighted','true');
@@ -159,6 +177,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   let codes=arraySelectorAll(':not(pre) code>pre:not([highlighted]),:not(pre,code) pre:not([highlighted]):has(code.html-code),:not(pre,code) pre:not([highlighted]):has(code)');
   let codes_length=codes.length;
   for(let i=0;i<codes_length;i++){
+    if(codes[i].innerHTML.toString().includes('highlight-me')){continue;}
     let hlc = 0;
     if(codes[i].hasAttribute('highlight-count')){
       hlc=parseInt(codes[i].getAttribute('highlight-count'));
@@ -322,6 +341,6 @@ globalThis.highlight=`<scr`+`ipt>void `+Highlight+`();</scr`+`ipt>`;
 
 if(window?.location){
   Highlight();
-  setTimeout(function(){Highlight();},2000);
+  //setTimeout(function(){Highlight();},2000);
 }
 
