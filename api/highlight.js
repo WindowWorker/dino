@@ -372,6 +372,6 @@ globalThis.highlight=`<scr`+`ipt>void `+Highlight+`();</scr`+`ipt>`;
 
 if(window?.location){
   Highlight();
-  //setTimeout(function(){Highlight();},2000);
+  setTimeout(function(){Highlight();},2000);
 }
 
