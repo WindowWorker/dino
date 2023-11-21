@@ -18,11 +18,13 @@ function arraySelectorAll(css){
     tks[i].setAttribute('highlight-done','true');
   }catch(e){continue;}}
 
+  if((!(document.querySelector('[highlight-count]')))||(document.querySelector('highlight-me'))){
   tks=arraySelectorAll(':not(.block)>[class*="token"]');
   for(let i=0 ; i<tks.length ; i++){try{
+
     tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token','')+' poop');
   }catch(e){continue;}}
-
+  }
   function stripCodes(){
   let doublecodes=arraySelectorAll('code>code');
   let doublecodes_length=doublecodes.length;
