@@ -4,6 +4,14 @@
 
 
 function Highlight(){
+
+  setInterval(function(){
+    if(document.querySelector('html').hasAttribute('location')){
+
+      if(document.querySelector('html').getAttribute('location') != window.location.href){location.reload();document.querySelector('html').setAttribute('location',window.location.href);}
+
+    }
+  },100);
  // if(globalThis.HighlightRunning){return;}
  // globalThis.HighlightRunning=true;
 function arraySelectorAll(css){
