@@ -43,7 +43,7 @@ function arraySelectorAll(css){
 
     }catch(e){continue;}}
 
-    doublecodes=document.querySelectorAll('code>*>code');
+    doublecodes=arraySelectorAll('code>*>code');
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
       let htm=doubleCodes[i].innerHTML.toString();
@@ -51,11 +51,21 @@ function arraySelectorAll(css){
 
     }catch(e){continue;}}
 
-    doublecodes=document.querySelectorAll('pre>*>pre');
+    doublecodes=arraySelectorAll('pre>*>pre');
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
       let htm=doubleCodes[i].innerHTML.toString();
       doublecodes[i].parentElement.parentElement.innerHTML=htm;
+
+    }catch(e){continue;}}
+
+    doublecodes=arraySelectorAll('.language-c');
+    doublecodes_length=doublecodes.length;
+    for(let i=0;i<doublecodes_length;i++){try{
+
+      doublecodes[i].setAttribute(
+        'class',
+        doublecodes[i].getAttribute('class').replaceAll('language-c','language-clike'));
 
     }catch(e){continue;}}
 
@@ -260,11 +270,13 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('-lua','-typescript')
       .replace('-rust','-clike')
       .replace('-cpp','-clike')
+      .replace('-c"','-clike"')
+      .replace('-c ','-clike ')
       .replaceAll(',','')
       ;//.replace('shell','docker');
   }  
     codes[i].setAttribute('class',mylang);
-    let codetext='<code class="'+mylang+'" highlighted=true><highlight-me></highlight-me>'+codes[i].innerHTML.toString()
+    let codetext=('<code class="'+mylang+'" highlighted=true><highlight-me></highlight-me>').replace('-c"','-clike"')+codes[i].innerHTML.toString()
       .replaceAll('<br>',R).trim()+
       '</code>';
     if(!(codetext.includes(R))){
