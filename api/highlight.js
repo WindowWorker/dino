@@ -166,18 +166,27 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   [class="font-mono"]:not([highlighted])`);
   let faces_length=faces.length;
   for(let i=0;i<faces_length;i++){
-    if(faces[i].outerHTML.toString().includes('highlight-me')){continue;}
-    faces[i].outerHTML=('<pre style="border-radius:1vmax;" class="'+faces[i].getAttribute('class')+'" highlight-count=0><code highlighted=true><highlight-me></highlight-me>'+faces[i].outerHTML.toString().replaceAll('&lt;','≺')+'</code></pre>')
+    if(faces[i].outerHTML.toString().includes('highlight-me')){highlighter();continue;}
+    if(!(faces[i].hasAttribute('class'))){
+      faces[i].setAttribute('class','font-mono'+' language-typescript');
+    }
+    if(faces[i].getAttribute('class').includes('font-mono')){
+      faces[i].setAttribute('class','font-mono'+' language-typescript');
+    }
+
+
+    if(faces[i].getAttribute('class').includes('tw-')||faces[i].getAttribute('class').includes('font-mono')){faces[i].outerHTML=('<pre style="border-radius:1vmax;" class="'+faces[i].getAttribute('class')+'" highlight-count=0><code highlighted=true><highlight-me></highlight-me>'+faces[i].outerHTML.toString().replaceAll('&lt;','≺')+'</code></pre>')
       .replace('<code highlighted=true><highlight-me></highlight-me><pre','<pre')
       .replace('<code><pre','<pre').replace('</pre></code>','</pre>');
     faces[i].setAttribute('highlighted','true');
+  }
   }
 
   let thisLang = 'typescript';
   let codes=arraySelectorAll(':not(pre) code>pre:not([highlighted]),:not(pre,code) pre:not([highlighted]):has(code.html-code),:not(pre,code) pre:not([highlighted]):has(code)');
   let codes_length=codes.length;
   for(let i=0;i<codes_length;i++){
-    if(codes[i].innerHTML.toString().includes('highlight-me')){continue;}
+    if(codes[i].innerHTML.toString().includes('highlight-me')){highlighter();continue;}
     let hlc = 0;
     if(codes[i].hasAttribute('highlight-count')){
       hlc=parseInt(codes[i].getAttribute('highlight-count'));
