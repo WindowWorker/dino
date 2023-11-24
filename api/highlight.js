@@ -102,23 +102,23 @@ await asunc();
   `.split(' ')[0];
 
 
-  function unlight(){
+  async function unlight(){
 
     let startH=arraySelectorAll('[highlighted]');
-    let startH_length=startH.length;
+    let startH_length=Math.min(startH.length,500);
     for(let i=0;i<startH_length;i++){
-
+      await asunc();
       startH[i].removeAttribute('highlighted');
 
     }
   }
 
-  function unlightEmpty(){
+  async function unlightEmpty(){
 
     let startH=arraySelectorAll('[highlighted]:not([highlight-done])');
-    let startH_length=startH.length;
+    let startH_length=Math.min(startH.length,500);
     for(let i=0;i<startH_length;i++){
-
+      await asunc();
       if((startH[i].children.length<2)
       &&((startH[i].innerText.includes(R))
       ||(startH[i].innerText.trim().length>50))){
@@ -141,12 +141,14 @@ globalThis.sleep=function(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function highlighter(){
+async function highlighter(){
   if(document.querySelector('highlight-me')){
     try{
     if(Prism){
       let hs=arraySelectorAll('[highlight-count]:not(:has(.token))');
-      for(let i=0 ; i<hs.length ; i++){try{
+      let hs_length=Math.min(hs.length,500);
+      for(let i=0 ; i<hs_length ; i++){try{
+        await asunc();
         Prism?.highlightElement?.(hs[i]);
       }catch(e){continue;}}
       }
@@ -154,10 +156,12 @@ function highlighter(){
   }
 }
 
-  function highlighterSelect(){
+  async function highlighterSelect(){
 
     let hs=arraySelectorAll('[highlight-count]:not(:has(.token))');
+    let hs_length=Math.min(hs.length,500);
     for(let i=0 ; i<hs.length ; i++){try{
+      await asunc();
       Prism?.highlightElement?.(hs[i]);
     }catch(e){continue;}}
   }
