@@ -144,12 +144,12 @@ globalThis.sleep=function(ms) {
 async function highlighter(){
   if(document.querySelector('highlight-me')){
     try{
-    if(Prism){
+    if(Prasm){
       let hs=arraySelectorAll('[highlight-count]:not(:has(.token))');
       let hs_length=Math.min(hs.length,77);
       for(let i=0 ; i<hs_length ; i++){try{
         await asunc();
-        Prism?.highlightElement?.(hs[i]);
+        Prasm?.highlightElement?.(hs[i]);
       }catch(e){continue;}}
       }
       }catch(e){}
@@ -162,7 +162,7 @@ async function highlighter(){
     let hs_length=Math.min(hs.length,77);
     for(let i=0 ; i<hs.length ; i++){try{
       await asunc();
-      Prism?.highlightElement?.(hs[i]);
+      Prasm?.highlightElement?.(hs[i]);
     }catch(e){continue;}}
   }
 
@@ -180,6 +180,8 @@ setTimeout(function(){getp();},1);
 
 async function getp(){
   stripCodes();
+
+  if(Prism&&(!Prasm)){globalThis.Prasm=Prism;}
 /*if(window.location.href.includes('/docs/handbook/declaration-files/dts-from-js.html')){return;}
 
 if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*/
@@ -311,7 +313,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
     codes[i].setAttribute('highlighted','true');
   }
   try{
-  if(Prism){
+  if(Prasm){
     highlighter();if(hlc<=5){highlighterSelect();}
     }
     }catch(e){}
@@ -342,7 +344,7 @@ if(document.body){
     g.id="prismgominjs";
     g.onload=function(){
 
-    globalThis.Prism=Prism;highlighter();highlighterSelect();
+    globalThis.Prasm=Prism;highlighter();highlighterSelect();
 
     let ss = document.createElement('style');
     ss.innerHTML='code[class*="language-"], pre[class*="language-"]{color:blue;}  .line>span[style="color: #008000"]:first-child{text-wrap:pretty;} .line>span{--background-color:#f5f8ff;} .language-shell [class="token operator"]{color:green !important;} pre,code{text-shadow:none !important;} pre[clsee*="language-typescript"]{color:blue;} code[clsee*="language-typescript"]{color:blue;}';
