@@ -5,7 +5,12 @@
 
 async function Highlight(){
 
-  globalThis.asunc=async function(){return await "event loop";};
+
+  globalThis.sleep=function(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  globalThis.asunc=async function(){return await sleep(20);};
 
   setInterval(function(){
     if(document.querySelector('html').hasAttribute('location')){
@@ -137,9 +142,6 @@ setInterval(function(){unlightEmpty();},500);
   setTimeout(function(){unlight();},2000);
   setTimeout(function(){unlight();},3000);
 
-globalThis.sleep=function(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 async function highlighter(){
   if(document.querySelector('highlight-me')){
