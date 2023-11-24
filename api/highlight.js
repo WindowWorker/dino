@@ -186,8 +186,9 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   pre:has(.poop),
   li>code:not([highlighted]),
   [class="font-mono"]:not([highlighted])`);
-  let faces_length=faces.length;
+  let faces_length=Math.min(faces.length,500);
   for(let i=0;i<faces_length;i++){
+    await asunc();
     if(faces[i].outerHTML.toString().includes('highlight-me')){highlighter();continue;}
     if(!(faces[i].hasAttribute('class'))){
       faces[i].setAttribute('class','font-mono'+' language-typescript');
