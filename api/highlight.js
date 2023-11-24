@@ -46,7 +46,7 @@ async function stripCodes(){
   let doublecodes_length=doublecodes.length;
   for(let i=0;i<doublecodes_length;i++){try{
 await asunc();
-    let htm = doubleCodes[i].innerHTML.toString();
+    let htm = doublecodes[i].innerHTML.toString();
     doublecodes[i].parentElement.innerHTML=htm;
 
   }catch(e){console.log(e);continue;}}
@@ -55,7 +55,7 @@ await asunc();
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
       await asunc();
-      let htm = doubleCodes[i].innerHTML.toString();
+      let htm = doublecodes[i].innerHTML.toString();
       doublecodes[i].parentElement.innerHTML=htm;
 
     }catch(e){console.log(e);continue;}}
@@ -64,7 +64,7 @@ await asunc();
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
       await asunc();
-      let htm=doubleCodes[i].innerHTML.toString();
+      let htm=doublecodes[i].innerHTML.toString();
       doublecodes[i].parentElement.parentElement.innerHTML=htm;
 
     }catch(e){console.log(e);continue;}}
@@ -74,7 +74,7 @@ await asunc();
     for(let i=0;i<doublecodes_length;i++){try{
 
       await asunc();
-      let htm=doubleCodes[i].innerHTML.toString();
+      let htm=doublecodes[i].innerHTML.toString();
       doublecodes[i].parentElement.parentElement.innerHTML=htm;
 
     }catch(e){console.log(e);continue;}}
