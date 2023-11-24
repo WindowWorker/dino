@@ -32,14 +32,14 @@ function arraySelectorAll(css){
   for(let i=0 ; i<tks.length ; i++){try{
     await asunc();
     tks[i].setAttribute('highlight-done','true');
-  }catch(e){continue;}}
+  }catch(e){console.log(e);continue;}}
 
   if((!(document.querySelector('[highlight-count]')))||(document.querySelector('highlight-me'))){
   tks=arraySelectorAll(':not(.block)>[class*="token"]');
   for(let i=0 ; i<tks.length ; i++){try{
  await asunc();
     tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token','')+' poop');
-  }catch(e){continue;}}
+  }catch(e){console.log(e);continue;}}
   }
 async function stripCodes(){
   let doublecodes=arraySelectorAll('code>code');
@@ -49,7 +49,7 @@ await asunc();
     let htm = doubleCodes[i].innerHTML.toString();
     doublecodes[i].parentElement.innerHTML=htm;
 
-  }catch(e){continue;}}
+  }catch(e){console.log(e);continue;}}
 
     doublecodes=arraySelectorAll('pre>pre');
     doublecodes_length=doublecodes.length;
@@ -58,7 +58,7 @@ await asunc();
       let htm = doubleCodes[i].innerHTML.toString();
       doublecodes[i].parentElement.innerHTML=htm;
 
-    }catch(e){continue;}}
+    }catch(e){console.log(e);continue;}}
 
     doublecodes=arraySelectorAll('code>*>code');
     doublecodes_length=doublecodes.length;
@@ -67,7 +67,7 @@ await asunc();
       let htm=doubleCodes[i].innerHTML.toString();
       doublecodes[i].parentElement.parentElement.innerHTML=htm;
 
-    }catch(e){continue;}}
+    }catch(e){console.log(e);continue;}}
 
     doublecodes=arraySelectorAll('pre>*>pre');
     doublecodes_length=doublecodes.length;
@@ -77,7 +77,7 @@ await asunc();
       let htm=doubleCodes[i].innerHTML.toString();
       doublecodes[i].parentElement.parentElement.innerHTML=htm;
 
-    }catch(e){continue;}}
+    }catch(e){console.log(e);continue;}}
 
     doublecodes=arraySelectorAll('.language-c');
     doublecodes_length=doublecodes.length;
@@ -87,7 +87,7 @@ await asunc();
         'class',
         doublecodes[i].getAttribute('class').replaceAll('language-c','language-clike'));
 
-    }catch(e){continue;}}
+    }catch(e){console.log(e);continue;}}
 
     doublecodes=arraySelectorAll('pre:has(.token)');
     doublecodes_length=doublecodes.length;
@@ -97,7 +97,7 @@ await asunc();
         doublecodes[i].innerHTML=doublecodes[i].innerHTML.toString().replaceAll('≺','<span class="token operator">&lt;</span>');
       }
 
-    }catch(e){continue;}}
+    }catch(e){console.log(e);continue;}}
 
   }
   stripCodes();
@@ -146,13 +146,13 @@ setInterval(function(){unlightEmpty();},500);
 async function highlighter(){
   if(document.querySelector('highlight-me')){
     try{
-    if(Prasm){
+    if(globalThis.Prasm){
       let hs=arraySelectorAll('[highlight-count]:not(:has(.token))');
       let hs_length=Math.min(hs.length,77);
       for(let i=0 ; i<hs_length ; i++){try{
         await asunc();
-        Prasm?.highlightElement?.(hs[i]);
-      }catch(e){continue;}}
+        globalThis.Prasm?.highlightElement?.(hs[i]);
+      }catch(e){console.log(e);continue;}}
       }
       }catch(e){}
   }
@@ -164,8 +164,8 @@ async function highlighter(){
     let hs_length=Math.min(hs.length,77);
     for(let i=0 ; i<hs.length ; i++){try{
       await asunc();
-      Prasm?.highlightElement?.(hs[i]);
-    }catch(e){continue;}}
+      globalThis.Prasm?.highlightElement?.(hs[i]);
+    }catch(e){console.log(e);continue;}}
   }
 
 void async function getPrism(){
@@ -183,7 +183,7 @@ setTimeout(function(){getp();},1);
 async function getp(){
   stripCodes();
 
-  if(Prism&&(!Prasm)){globalThis.Prasm=Prism;}
+  try{if(Prism&&(!(globalThis.Prasm))){globalThis.Prasm=Prism;}}catch(e){}
 /*if(window.location.href.includes('/docs/handbook/declaration-files/dts-from-js.html')){return;}
 
 if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*/
@@ -200,7 +200,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   li>code:not([highlighted]),
   [class="font-mono"]:not([highlighted])`);
   let faces_length=Math.min(faces.length,77);
-  for(let i=0;i<faces_length;i++){
+  for(let i=0;i<faces_length;i++){try{
     await asunc();
     if(faces[i].outerHTML.toString().includes('highlight-me')){highlighter();continue;}
     if(!(faces[i].hasAttribute('class'))){
@@ -216,7 +216,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('<code><pre','<pre').replace('</pre></code>','</pre>');
     faces[i].setAttribute('highlighted','true');
   }
-  }
+  }catch(e){console.log(e);continue;}}
 
   let thisLang = 'typescript';
   let codes=arraySelectorAll(':not(pre) code>pre:not([highlighted]),:not(pre,code) pre:not([highlighted]):has(code.html-code),:not(pre,code) pre:not([highlighted]):has(code)');
@@ -315,7 +315,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
     codes[i].setAttribute('highlighted','true');
   }
   try{
-  if(Prasm){
+  if(globalThis.Prasm){
     highlighter();if(hlc<=5){highlighterSelect();}
     }
     }catch(e){}
