@@ -3,9 +3,9 @@
 
 
 
-function Highlight(){
+async function Highlight(){
 
-  globalThis.asunc=async()=>{};
+  globalThis.asunc=async function(){return await "event loop";};
 
   setInterval(function(){
     if(document.querySelector('html').hasAttribute('location')){
@@ -25,21 +25,22 @@ function arraySelectorAll(css){
   //if(document.querySelector('.block')){return;}
   let tks=arraySelectorAll('pre:has(.block)');
   for(let i=0 ; i<tks.length ; i++){try{
+    await asunc();
     tks[i].setAttribute('highlight-done','true');
   }catch(e){continue;}}
 
   if((!(document.querySelector('[highlight-count]')))||(document.querySelector('highlight-me'))){
   tks=arraySelectorAll(':not(.block)>[class*="token"]');
   for(let i=0 ; i<tks.length ; i++){try{
-
+ await asunc();
     tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token','')+' poop');
   }catch(e){continue;}}
   }
-  function stripCodes(){
+async function stripCodes(){
   let doublecodes=arraySelectorAll('code>code');
   let doublecodes_length=doublecodes.length;
   for(let i=0;i<doublecodes_length;i++){try{
-
+await asunc();
     let htm = doubleCodes[i].innerHTML.toString();
     doublecodes[i].parentElement.innerHTML=htm;
 
@@ -48,6 +49,7 @@ function arraySelectorAll(css){
     doublecodes=arraySelectorAll('pre>pre');
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
+      await asunc();
       let htm = doubleCodes[i].innerHTML.toString();
       doublecodes[i].parentElement.innerHTML=htm;
 
@@ -56,6 +58,7 @@ function arraySelectorAll(css){
     doublecodes=arraySelectorAll('code>*>code');
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
+      await asunc();
       let htm=doubleCodes[i].innerHTML.toString();
       doublecodes[i].parentElement.parentElement.innerHTML=htm;
 
@@ -64,6 +67,8 @@ function arraySelectorAll(css){
     doublecodes=arraySelectorAll('pre>*>pre');
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
+
+      await asunc();
       let htm=doubleCodes[i].innerHTML.toString();
       doublecodes[i].parentElement.parentElement.innerHTML=htm;
 
@@ -72,7 +77,7 @@ function arraySelectorAll(css){
     doublecodes=arraySelectorAll('.language-c');
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
-
+await asunc();
       doublecodes[i].setAttribute(
         'class',
         doublecodes[i].getAttribute('class').replaceAll('language-c','language-clike'));
@@ -82,7 +87,7 @@ function arraySelectorAll(css){
     doublecodes=arraySelectorAll('pre:has(.token)');
     doublecodes_length=doublecodes.length;
     for(let i=0;i<doublecodes_length;i++){try{
-
+await asunc();
       if(doublecodes[i].innerHTML.includes('≺')){
         doublecodes[i].innerHTML=doublecodes[i].innerHTML.toString().replaceAll('≺','<span class="token operator">&lt;</span>');
       }
