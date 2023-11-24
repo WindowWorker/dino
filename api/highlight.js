@@ -105,7 +105,7 @@ await asunc();
   async function unlight(){
 
     let startH=arraySelectorAll('[highlighted]');
-    let startH_length=Math.min(startH.length,500);
+    let startH_length=Math.min(startH.length,77);
     for(let i=0;i<startH_length;i++){
       await asunc();
       startH[i].removeAttribute('highlighted');
@@ -116,7 +116,7 @@ await asunc();
   async function unlightEmpty(){
 
     let startH=arraySelectorAll('[highlighted]:not([highlight-done])');
-    let startH_length=Math.min(startH.length,500);
+    let startH_length=Math.min(startH.length,77);
     for(let i=0;i<startH_length;i++){
       await asunc();
       if((startH[i].children.length<2)
@@ -146,7 +146,7 @@ async function highlighter(){
     try{
     if(Prism){
       let hs=arraySelectorAll('[highlight-count]:not(:has(.token))');
-      let hs_length=Math.min(hs.length,500);
+      let hs_length=Math.min(hs.length,77);
       for(let i=0 ; i<hs_length ; i++){try{
         await asunc();
         Prism?.highlightElement?.(hs[i]);
@@ -159,7 +159,7 @@ async function highlighter(){
   async function highlighterSelect(){
 
     let hs=arraySelectorAll('[highlight-count]:not(:has(.token))');
-    let hs_length=Math.min(hs.length,500);
+    let hs_length=Math.min(hs.length,77);
     for(let i=0 ; i<hs.length ; i++){try{
       await asunc();
       Prism?.highlightElement?.(hs[i]);
@@ -195,7 +195,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
   pre:has(.poop),
   li>code:not([highlighted]),
   [class="font-mono"]:not([highlighted])`);
-  let faces_length=Math.min(faces.length,500);
+  let faces_length=Math.min(faces.length,77);
   for(let i=0;i<faces_length;i++){
     await asunc();
     if(faces[i].outerHTML.toString().includes('highlight-me')){highlighter();continue;}
@@ -216,7 +216,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
 
   let thisLang = 'typescript';
   let codes=arraySelectorAll(':not(pre) code>pre:not([highlighted]),:not(pre,code) pre:not([highlighted]):has(code.html-code),:not(pre,code) pre:not([highlighted]):has(code)');
-  let codes_length=Math.min(codes.length,500);
+  let codes_length=Math.min(codes.length,77);
   for(let i=0;i<codes_length;i++){
     await asunc();
     if(codes[i].innerHTML.toString().includes('highlight-me')){highlighter();continue;}
