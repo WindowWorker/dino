@@ -5,6 +5,8 @@
 
 function Highlight(){
 
+  globalThis.asunc=async()=>{};
+
   setInterval(function(){
     if(document.querySelector('html').hasAttribute('location')){
 
@@ -204,8 +206,9 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
 
   let thisLang = 'typescript';
   let codes=arraySelectorAll(':not(pre) code>pre:not([highlighted]),:not(pre,code) pre:not([highlighted]):has(code.html-code),:not(pre,code) pre:not([highlighted]):has(code)');
-  let codes_length=codes.length;
+  let codes_length=Math.min(codes.length,500);
   for(let i=0;i<codes_length;i++){
+    await asunc();
     if(codes[i].innerHTML.toString().includes('highlight-me')){highlighter();continue;}
     let hlc = 0;
     if(codes[i].hasAttribute('highlight-count')){
