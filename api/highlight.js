@@ -10,7 +10,7 @@ async function Highlight(){
       return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  globalThis.asunc=async function(){return await sleep(20);};
+  globalThis.asunc=async function(){return await "event loop"};
 
   setInterval(function(){
     if(document.querySelector('html').hasAttribute('location')){
