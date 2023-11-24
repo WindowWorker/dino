@@ -328,7 +328,7 @@ if(document.body){
   document.body.appendChild(l);
   }else{
   await sleep(500);
-  document.body.appendChild(l);
+  document.firstElementChild.appendChild(l);
   }
   }
 
@@ -344,21 +344,36 @@ if(document.body){
     let g=document.createElement('script');
     g.src='https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-typescript.min.js';
     g.id="prismgominjs";
-    g.onload=function(){
+    g.onload=async function(){
 
     globalThis.Prasm=Prism;highlighter();highlighterSelect();
 
     let ss = document.createElement('style');
     ss.innerHTML='code[class*="language-"], pre[class*="language-"]{color:blue;}  .line>span[style="color: #008000"]:first-child{text-wrap:pretty;} .line>span{--background-color:#f5f8ff;} .language-shell [class="token operator"]{color:green !important;} pre,code{text-shadow:none !important;} pre[clsee*="language-typescript"]{color:blue;} code[clsee*="language-typescript"]{color:blue;}';
-    document.body.appendChild(ss);
+      if(document.body){
+        document.body.appendChild(ss);
+        }else{
+       await sleep(500);
+        document.firstElementChild.appendChild(ss);
+        }
     };
-  document.body.appendChild(g); 
+      if(document.body){
+        document.body.appendChild(g);
+        }else{
+        await sleep(500);
+        document.firstElementChild.appendChild(g);
+        }
     }  
   };
 
 
 
-document.body.appendChild(m);
+    if(document.body){
+      document.body.appendChild(m);
+      }else{
+      await sleep(500);
+      document.firstElementChild.appendChild(m);
+      }
 
 }
 
@@ -369,7 +384,12 @@ document.body.appendChild(m);
     let aspromise = new Promise(resolve=>{jsx.resolve=resolve})
       jsx.src=s;
       jsx.onload=function(){jsx.resolve();}
+    if(document.body){
       document.body.appendChild(jsx);
+      }else{
+      await sleep(500);
+      document.firstElementChild.appendChild(jsx);
+      }
     await aspromise;
     return aspromise;
     }
