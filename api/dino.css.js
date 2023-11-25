@@ -1,10 +1,13 @@
-globalThis.dinoCSS=`<style>
+globalThis.dinoCSS = `<style>
 
 html{
 
 filter:hue-rotate(135deg) saturate(3);
 
 }
+
+html[location*="/std@"] .markdown-body pre>pre{padding:0px !important;border-radius:0px !important;}
+
 
 pre[class*="language-"]{
 background-color:aliceblue;
@@ -70,4 +73,3 @@ font-size:unset !important;
 }
 
 </style>`;
-
