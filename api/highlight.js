@@ -409,6 +409,6 @@ globalThis.highlight=`<scr`+`ipt>void `+Highlight+`();</scr`+`ipt>`;
 
 if(window?.location){
   Highlight();
- // setTimeout(function(){Highlight();},2000);
+  setTimeout(function(){try{Prasm?.highlightAll?.();}catch(e){console.log(e);}},2000);
 }
 
