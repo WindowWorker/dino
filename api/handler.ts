@@ -108,7 +108,7 @@ export default async function (req: Request) {
     response.headers.set('Content-Type','text/html');
   }
   if(flatURL.endsWith('.js')){
-    response.headers.set('Content-Type','text/javascript');
+    response.headers.set('Content-Type','text/javascript; charset=utf-8');
   }
   if(flatURL.endsWith('.css')){
     response.headers.set('Content-Type','text/css');
