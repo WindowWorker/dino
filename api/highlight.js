@@ -5,7 +5,8 @@
 
 async function Highlight(){
 
-
+globalThis.await=_=>_;
+  
   globalThis.sleep=function(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
   }
@@ -32,14 +33,14 @@ function arraySelectorAll(css){
   for(let i=0 ; i<tks.length ; i++){try{
     await asunc();
     tks[i].setAttribute('highlight-done','true');
-  }catch(e){console.log(e);break;}}
+  }catch(e){await(console.log(e));break;}}
 
   if((!(document.querySelector('[highlight-count]')))||(document.querySelector('highlight-me'))){
   tks=arraySelectorAll(':not(.block)>[class*="token"]');
   for(let i=0 ; i<tks.length ; i++){try{
  await asunc();
     tks[i].setAttribute('class',tks[i].getAttribute('class').replaceAll('token','')+' poop');
-  }catch(e){console.log(e);break;}}
+  }catch(e){await(console.log(e));break;}}
   }
 async function stripCodes(){
   let doublecodes=arraySelectorAll('code>code');
@@ -49,7 +50,7 @@ await asunc();
     let htm = doublecodes[i].innerHTML.toString();
     doublecodes[i].parentElement.innerHTML=htm;
 
-  }catch(e){console.log(e);break;}}
+  }catch(e){await(console.log(e));break;}}
 
     doublecodes=arraySelectorAll('pre>pre');
     doublecodes_length=doublecodes.length;
@@ -58,7 +59,7 @@ await asunc();
       let htm = doublecodes[i].innerHTML.toString();
       doublecodes[i].parentElement.innerHTML=htm;
 
-    }catch(e){console.log(e);break;}}
+    }catch(e){await(console.log(e));break;}}
 
     doublecodes=arraySelectorAll('code>*>code');
     doublecodes_length=doublecodes.length;
@@ -67,7 +68,7 @@ await asunc();
       let htm=doublecodes[i].innerHTML.toString();
       doublecodes[i].parentElement.parentElement.innerHTML=htm;
 
-    }catch(e){console.log(e);break;}}
+    }catch(e){await(console.log(e));break;}}
 
     doublecodes=arraySelectorAll('pre>*>pre');
     doublecodes_length=doublecodes.length;
@@ -77,7 +78,7 @@ await asunc();
       let htm=doublecodes[i].innerHTML.toString();
       doublecodes[i].parentElement.parentElement.innerHTML=htm;
 
-    }catch(e){console.log(e);break;}}
+    }catch(e){await(console.log(e));break;}}
 
     doublecodes=arraySelectorAll('.language-c');
     doublecodes_length=doublecodes.length;
@@ -87,7 +88,7 @@ await asunc();
         'class',
         doublecodes[i].getAttribute('class').replaceAll('language-c','language-clike'));
 
-    }catch(e){console.log(e);break;}}
+    }catch(e){await(console.log(e));break;}}
 
     doublecodes=arraySelectorAll('pre:has(.token)');
     doublecodes_length=doublecodes.length;
@@ -97,7 +98,7 @@ await asunc();
         doublecodes[i].innerHTML=doublecodes[i].innerHTML.toString().replaceAll('≺','<span class="token operator">&lt;</span>');
       }
 
-    }catch(e){console.log(e);break;}}
+    }catch(e){await(console.log(e));break;}}
 
   }
   //stripCodes();
@@ -152,7 +153,7 @@ async function highlighter(){
       for(let i=0 ; i<hs_length ; i++){try{
         await asunc();
         globalThis.Prasm?.highlightElement?.(hs[i]);
-      }catch(e){console.log(e);break;}}
+      }catch(e){await(console.log(e));break;}}
       }
       }catch(e){}
   }
@@ -165,7 +166,7 @@ async function highlighter(){
     for(let i=0 ; i<hs.length ; i++){try{
       await asunc();
       globalThis.Prasm?.highlightElement?.(hs[i]);
-    }catch(e){console.log(e);break;}}
+    }catch(e){await(console.log(e));break;}}
   }
 
 void async function getPrism(){
@@ -216,7 +217,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('<code><pre','<pre').replace('</pre></code>','</pre>');
     faces[i].setAttribute('highlighted','true');
   }
-  }catch(e){console.log(e);break;}}
+  }catch(e){await(console.log(e));break;}}
 
   let thisLang = 'typescript';
   let codes=arraySelectorAll(':not(pre) code>pre:not([highlighted]),:not(pre,code) pre:not([highlighted]):has(code.html-code),:not(pre,code) pre:not([highlighted]):has(code)');
