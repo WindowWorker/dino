@@ -148,7 +148,7 @@ async function highlighter(){
   if(document.querySelector('highlight-me')){
     try{
     if(globalThis.Prasm){
-      let hs=arraySelectorAll('[highlight-count]:not(:has(.token))');
+      let hs=arraySelectorAll('[highlight-count]:has(highlight-me)');
       let hs_length=Math.min(hs.length,77);
       for(let i=0 ; i<hs_length ; i++){try{
         await asunc();
@@ -217,7 +217,7 @@ if(window.location.href.includes('/docs/handbook/tsconfig-json.html')){return;}*
       .replace('<code><pre','<pre').replace('</pre></code>','</pre>');
     faces[i].setAttribute('highlighted','true');
   }
-  }catch(e){await(console.log(e));break;}}
+  }catch(e){await(asunc());break;}}
 
   let thisLang = 'typescript';
   let codes=arraySelectorAll(':not(pre) code>pre:not([highlighted]),:not(pre,code) pre:not([highlighted]):has(code.html-code),:not(pre,code) pre:not([highlighted]):has(code)');
