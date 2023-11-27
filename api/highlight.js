@@ -155,7 +155,7 @@ async function highlighter(){
         globalThis.Prasm?.highlightElement?.(hs[i]);
       }catch(e){await(console.log(e));break;}}
       }
-      }catch(e){}
+      }catch(e){await(console.log(e));}
   }
 }
 
@@ -163,7 +163,7 @@ async function highlighter(){
 
     let hs=arraySelectorAll('[highlight-count]:not(:has(.token))');
     let hs_length=Math.min(hs.length,77);
-    for(let i=0 ; i<hs.length ; i++){try{
+    for(let i=0 ; i<hs_length ; i++){try{
       await asunc();
       globalThis.Prasm?.highlightElement?.(hs[i]);
     }catch(e){await(console.log(e));break;}}
