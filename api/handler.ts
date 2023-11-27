@@ -70,6 +70,7 @@ export default async function (req: Request) {
       let headText=injects;
       body=(await res.text())
         .replaceAll("delete globalThis.Prism","true")
+        .replaceAll('.hasAttribute(','?.hasAttribute?.(')
         .replace('<head>','<head>'+headText)
         .replace('</head>',headText+'</head>');
       if(body.includes('<html')||ct.includes('plain')){htmlFlag=true;}
