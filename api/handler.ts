@@ -27,6 +27,9 @@ export default async function (req: Request) {
   if ((req.method == "OPTIONS")||(req.url=='*')) {
     return new Response("",{headers:{Allow: "OPTIONS, GET, HEAD, POST"}});
   }
+  if(!request.headers.has('bot-protection')){
+    return new Response('<meta http-equiv="refresh" content="0; url=https://deno.typescripts.org/"><script>location.replace("https://deno.typescripts.org/");/script>',{headers:{'content-type': "text/html"}});
+  }
   let reqURL = req.url.replace('_root/','').replace('_root','');
   let url=reqURL.split('/');
   let flatURL = reqURL.split('?')[0].split('#')[0];
